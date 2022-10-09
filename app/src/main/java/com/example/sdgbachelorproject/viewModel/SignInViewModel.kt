@@ -7,8 +7,10 @@ import javax.inject.Inject
 class SignInViewModel @Inject constructor(private val firebaseRepository: FirebaseRepository) :
     ViewModel() {
 
+    val isTestEnabled = firebaseRepository.test
+
     fun printToConsole() {
-        println("ccc VM")
+        println("ccc VM: ${isTestEnabled.value}")
         firebaseRepository.consoleLogRepo()
     }
 }

@@ -37,7 +37,7 @@ class SignInActivity : AppCompatActivity(), LifecycleOwner {
     lateinit var signInViewModel: SignInViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
+        // Dagger
         (application as MyApplication).appComponent.inject(this)
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)

@@ -5,10 +5,19 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sdgbachelorproject.view.SignInActivity
+import com.example.sdgbachelorproject.viewModel.SignInViewModel
 import com.firebase.ui.auth.AuthUI
+import kotlinx.android.synthetic.main.activity_main.*
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var signInViewModel: SignInViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        // Dagger
+        (application as MyApplication).appComponent.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -16,6 +25,10 @@ class MainActivity : AppCompatActivity() {
 
         button.setOnClickListener {
             signOut()
+        }
+
+        btn_test_repo.setOnClickListener {
+            signInViewModel.printToConsole()
         }
     }
 
@@ -29,12 +42,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun delete() {
-        // [START auth_fui_delete]
         AuthUI.getInstance()
             .delete(this)
             .addOnCompleteListener {
                 // ...
             }
-        // [END auth_fui_delete]
     }
 }

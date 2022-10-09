@@ -1,6 +1,7 @@
 package com.example.sdgbachelorproject.utils.di
 
 import android.content.Context
+import com.example.sdgbachelorproject.MainActivity
 import com.example.sdgbachelorproject.view.SignInActivity
 import dagger.BindsInstance
 import dagger.Component
@@ -14,6 +15,7 @@ import javax.inject.Singleton
 interface AppComponent {
     // Classes that can be injected by this Component
     fun inject(activity: SignInActivity)
+    fun inject(activity: MainActivity)
 
     // Factory to create instances of the AppComponent
     @Component.Factory
