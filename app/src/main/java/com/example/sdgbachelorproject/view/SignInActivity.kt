@@ -4,9 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.ViewModelProvider
 import com.example.sdgbachelorproject.MainActivity
+import com.example.sdgbachelorproject.MyApplication
 import com.example.sdgbachelorproject.R
 import com.example.sdgbachelorproject.databinding.ActivityMainBinding
+import com.example.sdgbachelorproject.viewModel.SignInViewModel
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -17,8 +21,9 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import javax.inject.Inject
 
-class SignInActivity : AppCompatActivity() {
+class SignInActivity : AppCompatActivity(), LifecycleOwner {
 
     companion object {
         private const val TAG = "GoogleActivity"
@@ -28,11 +33,17 @@ class SignInActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
 
+    @Inject
+    lateinit var signInViewModel: SignInViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        (application as MyApplication).appComponent.inject(this)
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setContentView(R.layout.activity_sign_in)
+
 
         // Configure Google Sign In
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -101,6 +112,7 @@ class SignInActivity : AppCompatActivity() {
             val signInButton = findViewById<SignInButton>(R.id.sign_in_button)
             signInButton.setOnClickListener {
                 signIn()
+                signInViewModel.printToConsole()
             }
         }
     }
