@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.ViewModelProvider
 import com.example.sdgbachelorproject.MainActivity
 import com.example.sdgbachelorproject.MyApplication
 import com.example.sdgbachelorproject.R
@@ -60,6 +59,9 @@ class SignInActivity : AppCompatActivity(), LifecycleOwner {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
+        if (currentUser != null) {
+            signInViewModel.getCurrentUser(currentUser)
+        }
         updateUI(currentUser)
     }
 

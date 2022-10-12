@@ -30,6 +30,8 @@ class MainActivity : AppCompatActivity() {
         btn_test_repo.setOnClickListener {
             signInViewModel.printToConsole()
         }
+
+        txt_current_user.text = signInViewModel.currentUser.value?.displayName.toString()
     }
 
     private fun signOut() {
@@ -41,7 +43,7 @@ class MainActivity : AppCompatActivity() {
             }
     }
 
-    private fun delete() {
+    private fun deleteAccount() {
         AuthUI.getInstance()
             .delete(this)
             .addOnCompleteListener {
