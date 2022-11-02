@@ -1,36 +1,31 @@
-package com.example.sdgbachelorproject.view
+package com.google.firebase.quickstart.auth.kotlin
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.LifecycleOwner
 import com.example.sdgbachelorproject.MainActivity
 import com.example.sdgbachelorproject.MyApplication
 import com.example.sdgbachelorproject.R
-import com.example.sdgbachelorproject.databinding.ActivityMainBinding
 import com.example.sdgbachelorproject.viewModel.SignInViewModel
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.SignInButton
-import com.google.android.gms.common.api.ApiException
+import com.firebase.ui.auth.AuthUI
+import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
+import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import javax.inject.Inject
 
-class SignInActivity : AppCompatActivity(), LifecycleOwner {
+class SignInActivity : AppCompatActivity() {
 
-    companion object {
-        private const val TAG = "GoogleActivity"
-        private const val RC_SIGN_IN = 9001
+    // See: https://developer.android.com/training/basics/intents/result
+    private val signInLauncher = registerForActivityResult(
+        FirebaseAuthUIActivityResultContract()
+    ) { res ->
+        this.onSignInResult(res)
     }
 
     private lateinit var auth: FirebaseAuth
-    private lateinit var googleSignInClient: GoogleSignInClient
 
     @Inject
     lateinit var signInViewModel: SignInViewModel
@@ -39,18 +34,9 @@ class SignInActivity : AppCompatActivity(), LifecycleOwner {
         // Dagger
         (application as MyApplication).appComponent.inject(this)
         super.onCreate(savedInstanceState)
-        val binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        setContentView(R.layout.activity_sign_in)
+        setContentView(R.layout.activity_firebase_ui)
 
-
-        // Configure Google Sign In
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
-            .requestEmail()
-            .build()
-
-        googleSignInClient = GoogleSignIn.getClient(this, gso)
+        createSignInIntent()
         // Initialize Firebase Auth
         auth = Firebase.auth
     }
@@ -65,57 +51,62 @@ class SignInActivity : AppCompatActivity(), LifecycleOwner {
         updateUI(currentUser)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
+    private fun createSignInIntent() {
+        // Choose authentication providers
+        val providers = arrayListOf(
+            AuthUI.IdpConfig.EmailBuilder().build(),
+            AuthUI.IdpConfig.GoogleBuilder().build()
+        )
 
-        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
-        if (requestCode == RC_SIGN_IN) {
-            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-            try {
-                // Google Sign In was successful, authenticate with Firebase
-                val account = task.getResult(ApiException::class.java)!!
-                Log.d(TAG, "firebaseAuthWithGoogle:" + account.id)
-                firebaseAuthWithGoogle(account.idToken!!)
-            } catch (e: ApiException) {
-                // Google Sign In failed, update UI appropriately
-                Log.w(TAG, "Google sign in failed", e)
-            }
+        // Create and launch sign-in intent
+        val signInIntent = AuthUI.getInstance()
+            .createSignInIntentBuilder()
+            .setAvailableProviders(providers)
+            .build()
+        signInLauncher.launch(signInIntent)
+    }
+
+    private fun onSignInResult(result: FirebaseAuthUIAuthenticationResult) {
+        val response = result.idpResponse
+        if (result.resultCode == RESULT_OK) {
+            // Successfully signed in
+            val user = FirebaseAuth.getInstance().currentUser
+            val intent = Intent(this@SignInActivity, MainActivity::class.java)
+            startActivity(intent)
+        } else {
+            // Sign in failed. If response is null the user canceled the
+            // sign-in flow using the back button. Otherwise check
+            // response.getError().getErrorCode() and handle the error.
+            // ...
         }
     }
 
-    private fun firebaseAuthWithGoogle(idToken: String) {
-        val credential = GoogleAuthProvider.getCredential(idToken, null)
-        auth.signInWithCredential(credential)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    Log.d(TAG, "signInWithCredential:success")
-                    val user = auth.currentUser
-                    updateUI(user)
-                } else {
-                    // If sign in fails, display a message to the user.
-                    Log.w(TAG, "signInWithCredential:failure", task.exception)
-                    updateUI(null)
-                }
+    private fun delete() {
+        AuthUI.getInstance()
+            .delete(this)
+            .addOnCompleteListener {
+                // ...
             }
     }
 
-    private fun signIn() {
-        val signInIntent = googleSignInClient.signInIntent
-        startActivityForResult(signInIntent, RC_SIGN_IN)
-    }
-
+//    private fun themeAndLogo() {
+//        val providers = emptyList<AuthUI.IdpConfig>()
+//
+//        // [START auth_fui_theme_logo]
+//        val signInIntent = AuthUI.getInstance()
+//            .createSignInIntentBuilder()
+//            .setAvailableProviders(providers)
+//            .setLogo(R.drawable.my_great_logo) // Set logo drawable
+//            .setTheme(R.style.MySuperAppTheme) // Set theme
+//            .build()
+//        signInLauncher.launch(signInIntent)
+//        // [END auth_fui_theme_logo]
+//    }
 
     private fun updateUI(user: FirebaseUser?) {
         if (user != null) {
             val intent = Intent(this@SignInActivity, MainActivity::class.java)
             startActivity(intent)
-        } else {
-            val signInButton = findViewById<SignInButton>(R.id.sign_in_button)
-            signInButton.setOnClickListener {
-                signIn()
-                signInViewModel.printToConsole()
-            }
         }
     }
 }
