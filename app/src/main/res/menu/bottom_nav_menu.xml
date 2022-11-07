@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/firstFragment"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="First" />
+    <item
+        android:id="@+id/secondFragment"
+        android:icon="@drawable/ic_baseline_menu_book_24"
+        android:title="Second" />
+    <item
+        android:id="@+id/thirdFragment"
+        android:icon="@drawable/ic_baseline_family_restroom_24"
+        android:title="Third" />
+    <item
+        android:id="@+id/fourthFragment"
+        android:icon="@drawable/ic_baseline_outlined_flag_24"
+        android:title="Fourth" />
+    <item
+        android:id="@+id/fifthFragment"
+        android:icon="@drawable/ic_baseline_fastfood_24"
+        android:title="Fifth" />
+</menu>

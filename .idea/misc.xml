@@ -8,10 +8,12 @@
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.19074074074074074" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_sign_in.xml" value="0.30835418701171874" />
+        <entry key="app/src/main/res/layout/fragment_first.xml" value="0.4817708333333333" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.48072916666666665" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" project-jdk-name="12" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_12" default="true" project-jdk-name="12" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
