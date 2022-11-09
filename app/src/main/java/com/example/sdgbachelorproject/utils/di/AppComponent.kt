@@ -1,6 +1,7 @@
 package com.example.sdgbachelorproject.utils.di
 
 import android.content.Context
+import com.example.sdgbachelorproject.FirstFragment
 import com.example.sdgbachelorproject.MainActivity
 import com.google.firebase.quickstart.auth.kotlin.SignInActivity
 import dagger.BindsInstance
@@ -16,6 +17,7 @@ interface AppComponent {
     // Classes that can be injected by this Component
     fun inject(activity: SignInActivity)
     fun inject(activity: MainActivity)
+    fun inject(fragment: FirstFragment)
 
     // Factory to create instances of the AppComponent
     @Component.Factory
