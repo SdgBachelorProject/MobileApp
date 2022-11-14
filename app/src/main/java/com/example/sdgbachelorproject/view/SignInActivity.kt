@@ -47,6 +47,7 @@ class SignInActivity : AppCompatActivity() {
         val currentUser = auth.currentUser
         if (currentUser != null) {
             signInViewModel.getCurrentUser(currentUser)
+            signInViewModel.getCurrentUsersFirebaseToken(currentUser)
         }
         updateUI(currentUser)
     }
