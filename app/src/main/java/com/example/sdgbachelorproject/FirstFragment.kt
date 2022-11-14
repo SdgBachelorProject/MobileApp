@@ -43,6 +43,7 @@ class FirstFragment : Fragment() {
         }
 
         view.txt_current_user.text = signInViewModel.currentUser.value?.displayName.toString()
+        view.txt_current_user_token.text = signInViewModel.currentUsersFirebaseToken.value?.token.toString()
 
         return view
     }
