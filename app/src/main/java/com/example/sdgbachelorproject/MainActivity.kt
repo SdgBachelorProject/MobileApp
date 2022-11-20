@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var firebaseAnalytics: FirebaseAnalytics
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var drawerLayout: DrawerLayout
-//    private lateinit var listener: NavController.OnDestinationChangedListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         // Dagger
@@ -60,25 +59,14 @@ class MainActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
-
-        // It allows to change the color of top bar with the change of the fragment
-//        listener = NavController.OnDestinationChangedListener { controller, destination, arguments ->
-//            if (destination.id == R.id.firstFragment) {
-//                supportActionBar?.setBackgroundDrawable(ColorDrawable(getColor(com.firebase.ui.auth.R.color.colorPrimaryDark)))
-//            } else if (destination.id == R.id.secondFragment) {
-//                supportActionBar?.setBackgroundDrawable(ColorDrawable(getColor(com.firebase.ui.auth.R.color.colorAccent)))
-//            }
-//        }
     }
 
     override fun onResume() {
         super.onResume()
-//        navController.addOnDestinationChangedListener(listener)
     }
 
     override fun onPause() {
         super.onPause()
-//        navController.removeOnDestinationChangedListener(listener)
     }
 
     private fun googleAnalyticsEvents() {
