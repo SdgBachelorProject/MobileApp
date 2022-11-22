@@ -6,19 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.sdgbachelorproject.databinding.FragmentFirstBinding
+import com.example.sdgbachelorproject.databinding.FragmentHomeBinding
 import com.example.sdgbachelorproject.viewModel.SignInViewModel
 import com.firebase.ui.auth.AuthUI
 import com.google.firebase.quickstart.auth.kotlin.SignInActivity
-import kotlinx.android.synthetic.main.fragment_first.view.*
+import kotlinx.android.synthetic.main.fragment_home.view.*
 import javax.inject.Inject
 
-class FirstFragment : Fragment() {
+class HomeFragment : Fragment() {
 
     @Inject
     lateinit var signInViewModel: SignInViewModel
 
-    private var _binding: FragmentFirstBinding? = null
+    private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +31,7 @@ class FirstFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentFirstBinding.inflate(inflater, container, false)
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view = binding.root
 
         view.btn_log_out.setOnClickListener {
@@ -43,7 +43,8 @@ class FirstFragment : Fragment() {
         }
 
         view.txt_current_user.text = signInViewModel.currentUser.value?.displayName.toString()
-        view.txt_current_user_token.text = signInViewModel.currentUsersFirebaseToken.value?.token.toString()
+        view.txt_current_user_token.text =
+            signInViewModel.currentUsersFirebaseToken.value?.token.toString()
 
         return view
     }
