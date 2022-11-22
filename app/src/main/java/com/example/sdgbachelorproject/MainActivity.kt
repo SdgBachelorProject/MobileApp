@@ -59,6 +59,13 @@ class MainActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
+
+        // Drawer menu logout button listner
+        // its here since drawer_menu doesn't have its own fragment
+        navigation_view.getMenu().findItem(R.id.drawer_nav_logout).setOnMenuItemClickListener { menuItem ->
+//            signInViewModel.signOut()
+            true
+        }
     }
 
     override fun onResume() {
