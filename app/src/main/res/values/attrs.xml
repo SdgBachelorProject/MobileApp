@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <declare-styleable name="ConsumptionView">
+        <attr name="consumptionTitleText" format="string" />
+        <attr name="consumptionValueText" format="string" />
+        <attr name="consumptionIcon" format="integer" />
+    </declare-styleable>
+</resources>

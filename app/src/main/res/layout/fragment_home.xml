@@ -6,44 +6,83 @@
     android:layout_height="match_parent"
     tools:context=".view.HomeFragment">
 
-    <TextView
-        android:id="@+id/txt_current_user"
-        android:text="UserName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/txt_current_user_token"
-        app:layout_constraintEnd_toEndOf="parent"
+    <com.example.sdgbachelorproject.view.widget.ConsumptionView
+        android:id="@+id/electricityConsumptionPanel"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:consumptionTitleText="Electricity"
+        app:consumptionValueText="127 kWh"
+        app:consumptionIcon="@drawable/ic_happy"
+        app:layout_constraintHeight_percent="0.333"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
-    <TextView
-        android:id="@+id/txt_current_user_token"
-        android:text="Token"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/btn_log_out"
-        app:layout_constraintEnd_toEndOf="parent"
+    <com.example.sdgbachelorproject.view.widget.ConsumptionView
+        android:id="@+id/heatingConsumptionPanel"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:consumptionTitleText="Heating"
+        app:consumptionValueText="54 kW"
+        app:consumptionIcon="@drawable/ic_neutral"
+        app:layout_constraintHeight_percent="0.333"
+        app:layout_constraintTop_toBottomOf="@+id/electricityConsumptionPanel"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_current_user" />
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
-    <Button
-        android:id="@+id/btn_log_out"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Log out"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+    <com.example.sdgbachelorproject.view.widget.ConsumptionView
+        android:id="@+id/waterConsumptionPanel"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:consumptionTitleText="Water"
+        app:consumptionValueText="254 Liters"
+        app:consumptionIcon="@drawable/ic_sad"
+        app:layout_constraintHeight_percent="0.333"
+        app:layout_constraintTop_toBottomOf="@+id/heatingConsumptionPanel"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txt_current_user_token" />
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
-    <Button
-        android:id="@+id/btn_test_repo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Test Repo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_log_out" />
+<!--    <TextView-->
+<!--        android:id="@+id/txt_current_user"-->
+<!--        android:text="UserName"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/txt_current_user_token"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/txt_current_user_token"-->
+<!--        android:text="Token"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/btn_log_out"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/txt_current_user" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btn_log_out"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Log out"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/txt_current_user_token" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btn_test_repo"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Test Repo"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/btn_log_out" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
