@@ -1,4 +1,4 @@
-package com.example.sdgbachelorproject
+package com.example.sdgbachelorproject.view
 
 import android.app.Application
 import com.example.sdgbachelorproject.utils.di.AppComponent

@@ -1,8 +1,8 @@
 package com.example.sdgbachelorproject.utils.di
 
 import android.content.Context
-import com.example.sdgbachelorproject.HomeFragment
-import com.example.sdgbachelorproject.MainActivity
+import com.example.sdgbachelorproject.view.HomeFragment
+import com.example.sdgbachelorproject.view.MainActivity
 import com.google.firebase.quickstart.auth.kotlin.SignInActivity
 import dagger.BindsInstance
 import dagger.Component
