@@ -1,4 +1,4 @@
-package com.example.sdgbachelorproject
+package com.example.sdgbachelorproject.view
 
 import android.content.Intent
 import android.os.Bundle

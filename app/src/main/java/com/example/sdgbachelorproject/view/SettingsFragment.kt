@@ -1,12 +1,14 @@
-package com.example.sdgbachelorproject
+package com.example.sdgbachelorproject.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.example.sdgbachelorproject.R
 
-class FriendsFragment : Fragment() {
+
+class SettingsFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,6 +19,7 @@ class FriendsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_friends, container, false)
+        return inflater.inflate(R.layout.fragment_settings, container, false)
     }
+
 }

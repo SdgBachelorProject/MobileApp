@@ -3,8 +3,8 @@ package com.google.firebase.quickstart.auth.kotlin
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.sdgbachelorproject.MainActivity
-import com.example.sdgbachelorproject.MyApplication
+import com.example.sdgbachelorproject.view.MainActivity
+import com.example.sdgbachelorproject.view.MyApplication
 import com.example.sdgbachelorproject.R
 import com.example.sdgbachelorproject.viewModel.SignInViewModel
 import com.firebase.ui.auth.AuthUI
@@ -36,6 +36,7 @@ class SignInActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_firebase_ui)
 
+        // SignIn Intent
         createSignInIntent()
         // Initialize Firebase Auth
         auth = Firebase.auth
@@ -72,7 +73,6 @@ class SignInActivity : AppCompatActivity() {
         val response = result.idpResponse
         if (result.resultCode == RESULT_OK) {
             // Successfully signed in
-            val user = FirebaseAuth.getInstance().currentUser
             val intent = Intent(this@SignInActivity, MainActivity::class.java)
             startActivity(intent)
         } else {

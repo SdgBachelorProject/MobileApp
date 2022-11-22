@@ -1,4 +1,4 @@
-package com.example.sdgbachelorproject
+package com.example.sdgbachelorproject.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +11,7 @@ import androidx.navigation.ui.NavigationUI.setupWithNavController
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.sdgbachelorproject.R
 import com.example.sdgbachelorproject.databinding.ActivityMainBinding
 import com.example.sdgbachelorproject.viewModel.SignInViewModel
 import com.google.firebase.analytics.FirebaseAnalytics
