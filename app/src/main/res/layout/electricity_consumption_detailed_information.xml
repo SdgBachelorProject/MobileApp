@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/electricityConsumptionDetailedInformation"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/container_bottom_change_consumptions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.example.sdgbachelorproject.view.widget.ConsumptionAddView
+            android:id="@+id/electricity_add_consumption_phone"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:detailedConsumptionNumberPickerDefault="3"
+            app:detailedConsumptionNumberPickerMax="15"
+            app:detailedConsumptionNumberPickerMin="0"
+            app:detailedConsumptionText="@string/phone_consumption"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.333"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.example.sdgbachelorproject.view.widget.ConsumptionAddView
+            android:id="@+id/electricity_add_consumption_tv"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:detailedConsumptionNumberPickerDefault="3"
+            app:detailedConsumptionNumberPickerMax="15"
+            app:detailedConsumptionNumberPickerMin="0"
+            app:detailedConsumptionText="@string/tv_consumption"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.333"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/electricity_add_consumption_phone" />
+
+        <com.example.sdgbachelorproject.view.widget.ConsumptionAddView
+            android:id="@+id/electricity_add_consumption_pc"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:detailedConsumptionNumberPickerDefault="3"
+            app:detailedConsumptionNumberPickerMax="15"
+            app:detailedConsumptionNumberPickerMin="0"
+            app:detailedConsumptionText="@string/pc_consumption"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.333"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/electricity_add_consumption_tv" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_bottom_change_consumptions"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.1"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btn_change_consumptions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/change_consumption"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

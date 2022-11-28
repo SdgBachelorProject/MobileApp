@@ -6,12 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.sdgbachelorproject.R
 import com.example.sdgbachelorproject.databinding.FragmentHomeBinding
+import com.example.sdgbachelorproject.utils.switchFragment
 import com.example.sdgbachelorproject.viewModel.SignInViewModel
 import com.firebase.ui.auth.AuthUI
 import com.google.firebase.quickstart.auth.kotlin.SignInActivity
 import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.fragment_home.view.*
+import kotlinx.android.synthetic.main.view_current_consumption.view.*
 import javax.inject.Inject
 
 class HomeFragment : Fragment() {
@@ -61,8 +63,16 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupObservers() {
-        electricityConsumptionPanel.apply {
-//            onInfoButtonClick
+        electricityConsumptionPanel.btn_add_consumption.setOnClickListener {
+            switchFragment(R.id.electricityConsumptionDetailedInformation)
+        }
+
+        heatingConsumptionPanel.btn_add_consumption.setOnClickListener {
+            switchFragment(R.id.heatingConsumptionDetailedInformation)
+        }
+
+        waterConsumptionPanel.btn_add_consumption.setOnClickListener {
+            switchFragment(R.id.waterConsumptionDetailedInformation)
         }
     }
 

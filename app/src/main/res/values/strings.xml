@@ -2,4 +2,10 @@
     <string name="app_name">SdgBachelorProject</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btn_add_consumption">+</string>
+    <string name="txt_current_consumption">Current consumption:</string>
+    <string name="phone_consumption">How many hours a day do you use your phone?</string>
+    <string name="tv_consumption">How many hours a day do you use your TV?</string>
+    <string name="pc_consumption">How many hours a day do you use your laptop/PC?</string>
+    <string name="change_consumption">Change consumptions</string>
 </resources>

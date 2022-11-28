@@ -6,21 +6,25 @@ import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.sdgbachelorproject.R
 import io.reactivex.subjects.PublishSubject
-import kotlinx.android.synthetic.main.view_consumption.view.*
+import kotlinx.android.synthetic.main.view_current_consumption.view.*
 
-class ConsumptionView: ConstraintLayout {
+class ConsumptionView : ConstraintLayout {
 
     val onInfoButtonClick = PublishSubject.create<Unit>()
     val onAddConsumptionButtonClick = PublishSubject.create<Unit>()
 
     constructor(context: Context) : super(context) {
-        LayoutInflater.from(context).inflate(R.layout.view_consumption, this)
+        LayoutInflater.from(context).inflate(R.layout.view_current_consumption, this)
     }
 
     constructor(context: Context, attrs: AttributeSet) : this(context, attrs, 0)
 
-    constructor(context: Context, attrs: AttributeSet, defstyle: Int) : super(context, attrs, defstyle) {
-        LayoutInflater.from(context).inflate(R.layout.view_consumption, this)
+    constructor(context: Context, attrs: AttributeSet, defstyle: Int) : super(
+        context,
+        attrs,
+        defstyle
+    ) {
+        LayoutInflater.from(context).inflate(R.layout.view_current_consumption, this)
         init(context, attrs)
     }
 
