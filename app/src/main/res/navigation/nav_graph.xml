@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/homeFragmentBottom">
 
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/homeFragmentBottom"
         android:name="com.example.sdgbachelorproject.view.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home">
@@ -14,24 +14,33 @@
             android:id="@+id/action_firstFragment_to_settingsFragment"
             app:destination="@id/settingsFragment"
             app:enterAnim="@anim/fui_slide_in_right" />
+        <action
+            android:id="@+id/action_homeFragment_to_electricityConsumptionDetailedInformation2"
+            app:destination="@id/electricityConsumptionDetailedInformation" />
+        <action
+            android:id="@+id/action_homeFragment_to_heatingConsumptionDetailedInformation"
+            app:destination="@id/heatingConsumptionDetailedInformation" />
+        <action
+            android:id="@+id/action_homeFragment_to_waterConsumptionDetailedInformation"
+            app:destination="@id/waterConsumptionDetailedInformation" />
     </fragment>
     <fragment
-        android:id="@+id/tutorialFragment"
+        android:id="@+id/tutorialFragmentBottom"
         android:name="com.example.sdgbachelorproject.view.TutorialFragment"
         android:label="Tutorials"
         tools:layout="@layout/fragment_tutorial" />
     <fragment
-        android:id="@+id/friendsFragment"
+        android:id="@+id/friendsFragmentBottom"
         android:name="com.example.sdgbachelorproject.view.FriendsFragment"
         android:label="Friends"
         tools:layout="@layout/fragment_friends" />
     <fragment
-        android:id="@+id/leaguesFragment"
+        android:id="@+id/leaguesFragmentBottom"
         android:name="com.example.sdgbachelorproject.view.LeaguesFragment"
         android:label="Leagues"
         tools:layout="@layout/fragment_leagues" />
     <fragment
-        android:id="@+id/nutritionFragment"
+        android:id="@+id/nutritionFragmentBottom"
         android:name="com.example.sdgbachelorproject.view.NutritionFragment"
         android:label="Nutrition"
         tools:layout="@layout/fragment_nutrition" />
@@ -42,7 +51,19 @@
         tools:layout="@layout/fragment_settings" >
         <action
             android:id="@+id/action_settingsFragment_to_firstFragment"
-            app:destination="@id/homeFragment"
+            app:destination="@id/homeFragmentBottom"
             app:exitAnim="@anim/fui_slide_out_left" />
     </fragment>
+    <fragment
+        android:id="@+id/electricityConsumptionDetailedInformation"
+        android:name="com.example.sdgbachelorproject.view.detailedConsumptionViews.ElectricityConsumptionDetailedInformation"
+        android:label="ElectricityConsumptionDetailedInformation" />
+    <fragment
+        android:id="@+id/heatingConsumptionDetailedInformation"
+        android:name="com.example.sdgbachelorproject.view.detailedConsumptionViews.HeatingConsumptionDetailedInformation"
+        android:label="HeatingConsumptionDetailedInformation" />
+    <fragment
+        android:id="@+id/waterConsumptionDetailedInformation"
+        android:name="com.example.sdgbachelorproject.view.detailedConsumptionViews.WaterConsumptionDetailedInformation"
+        android:label="WaterConsumptionDetailedInformation" />
 </navigation>
