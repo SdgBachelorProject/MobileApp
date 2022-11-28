@@ -70,7 +70,7 @@
             android:id="@+id/btn_change_consumptions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/change_consumption"
+            android:text="@string/change_electricity_consumption_btn"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
