@@ -19,4 +19,9 @@
     <string name="energy_saving_1">Energy Saving 1</string>
     <string name="energy_saving_2">Energy Saving 2</string>
     <string name="energy_saving_3">Energy Saving 3</string>
+
+    <!--    Leagues-->
+    <string name="current_league">Current League: </string>
+    <string name="leagues_item_user">User Name</string>
+    <string name="leagues_item_xp">300 XP</string>
 </resources>
