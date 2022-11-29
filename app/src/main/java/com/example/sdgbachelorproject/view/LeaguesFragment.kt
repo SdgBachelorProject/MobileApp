@@ -16,8 +16,6 @@ class LeaguesFragment : Fragment() {
 
     private var _binding: FragmentLeaguesBinding? = null
     private val binding get() = _binding!!
-
-    //    private val itemsList = ArrayList<List<String>>()
     private val itemsList = ArrayList<TestData>()
     private lateinit var leaguesAdapter: LeaguesAdapter
 
