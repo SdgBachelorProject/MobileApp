@@ -52,11 +52,11 @@
 
         <ImageView
             android:id="@+id/consumption_value_info"
-            android:layout_width="14dp"
-            android:layout_height="14dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="5dp"
-            android:src="@drawable/ic_baseline_info_24" />
+            android:src="@drawable/ic_info" />
     </LinearLayout>
 
     <ImageView

@@ -1,60 +1,57 @@
 package com.example.sdgbachelorproject.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.sdgbachelorproject.R
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.sdgbachelorproject.databinding.FragmentLeaguesBinding
+import com.example.sdgbachelorproject.model.repositories.TestData
+import com.example.sdgbachelorproject.view.adapters.LeaguesAdapter
+import kotlinx.android.synthetic.main.fragment_leagues.view.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [LeaguesFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class LeaguesFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    private var _binding: FragmentLeaguesBinding? = null
+    private val binding get() = _binding!!
+
+    //    private val itemsList = ArrayList<List<String>>()
+    private val itemsList = ArrayList<TestData>()
+    private lateinit var leaguesAdapter: LeaguesAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_leagues, container, false)
+        _binding = FragmentLeaguesBinding.inflate(inflater, container, false)
+        val view = binding.root
+
+        val recyclerView: RecyclerView = view.leagues_recycler_view
+        leaguesAdapter = LeaguesAdapter(itemsList)
+        val layoutManager = LinearLayoutManager(this.context)
+        recyclerView.layoutManager = layoutManager
+        recyclerView.adapter = leaguesAdapter
+        prepareItems()
+
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment FourthFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            LeaguesFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun prepareItems() {
+        itemsList.add(TestData("Dumitrus Bogus", 32))
+        itemsList.add(TestData("Pawel", 645))
+        itemsList.add(TestData("Wojtek", 12))
+        itemsList.add(TestData("Tom", 923))
+        itemsList.add(TestData("Bnal", 54343))
+        itemsList.add(TestData("Iaox", 923))
+        itemsList.add(TestData("Ljks", 823))
+        itemsList.add(TestData("Madb", 1123))
+        itemsList.add(TestData("Bob", 38409))
+        leaguesAdapter.notifyDataSetChanged()
     }
 }
