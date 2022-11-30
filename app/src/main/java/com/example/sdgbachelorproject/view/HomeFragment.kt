@@ -1,13 +1,16 @@
 package com.example.sdgbachelorproject.view
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.sdgbachelorproject.R
 import com.example.sdgbachelorproject.databinding.FragmentHomeBinding
+import com.example.sdgbachelorproject.utils.createAlertDialog
 import com.example.sdgbachelorproject.utils.switchFragment
 import com.example.sdgbachelorproject.viewModel.SignInViewModel
 import com.firebase.ui.auth.AuthUI
@@ -63,16 +66,31 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupObservers() {
+//        Electricity
         electricityConsumptionPanel.btn_add_consumption.setOnClickListener {
             switchFragment(R.id.electricityConsumptionDetailedInformation)
         }
 
+        electricityConsumptionPanel.consumption_value_info.setOnClickListener {
+            createAlertDialog("Electricity", this.requireContext())
+        }
+
+//        Heating
         heatingConsumptionPanel.btn_add_consumption.setOnClickListener {
             switchFragment(R.id.heatingConsumptionDetailedInformation)
         }
 
+        heatingConsumptionPanel.consumption_value_info.setOnClickListener {
+            createAlertDialog("Heating", this.requireContext())
+        }
+
+//        Water
         waterConsumptionPanel.btn_add_consumption.setOnClickListener {
             switchFragment(R.id.waterConsumptionDetailedInformation)
+        }
+
+        waterConsumptionPanel.consumption_value_info.setOnClickListener {
+            createAlertDialog("Water", this.requireContext())
         }
     }
 

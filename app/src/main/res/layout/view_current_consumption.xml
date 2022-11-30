@@ -54,11 +54,12 @@
 
         <ImageView
             android:id="@+id/consumption_value_info"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="5dp"
-            android:src="@drawable/ic_info" />
+            android:src="@drawable/ic_info"
+            app:tint="@color/teal_700" />
     </LinearLayout>
 
     <ImageView

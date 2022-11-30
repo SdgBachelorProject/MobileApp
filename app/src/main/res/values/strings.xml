@@ -27,6 +27,8 @@
 
     <!--    Home-->
     <string name="consumption">Consumption</string>
+    <string name="consumption_alert_dialog_button">I got it!</string>
+    <string name="consumption_alert_dialog_title">That is how we calculate your consumptions</string>
 
     <!--    Friends-->
     <string name="friends_item_user">User Name</string>
