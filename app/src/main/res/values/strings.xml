@@ -24,4 +24,7 @@
     <string name="current_league">Current League: </string>
     <string name="leagues_item_user">User Name</string>
     <string name="leagues_item_xp">300 XP</string>
+
+    <!--    Home-->
+    <string name="consumption">Consumption</string>
 </resources>
