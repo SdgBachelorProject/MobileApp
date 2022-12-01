@@ -14,4 +14,7 @@
         <!-- Customize your theme here. -->
         <item name="colorControlNormal">@color/white</item>
     </style>
+    <style name="ThemeOverlay.NumberPicker" parent="" >
+        <item name="colorControlNormal">@color/purple_700</item>
+    </style>
 </resources>

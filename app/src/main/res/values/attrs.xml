@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <declare-styleable name="ConsumptionView">
+        <attr name="consumptionTitleText" format="string" />
+        <attr name="consumptionValueText" format="string" />
+        <attr name="consumptionIcon" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="ConsumptionAddView">
+        <attr name="detailedConsumptionText" format="string" />
+        <attr name="detailedConsumptionNumberPickerDefault" format="integer" />
+        <attr name="detailedConsumptionNumberPickerMin" format="integer" />
+        <attr name="detailedConsumptionNumberPickerMax" format="integer" />
+    </declare-styleable>
+</resources>

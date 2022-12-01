@@ -2,4 +2,36 @@
     <string name="app_name">SdgBachelorProject</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--    Consumptions-->
+    <string name="btn_add_consumption">+</string>
+    <string name="txt_current_consumption">Current consumption:</string>
+    <string name="phone_consumption">How many hours a day do you use your phone?</string>
+    <string name="tv_consumption">How many hours a day do you use your TV?</string>
+    <string name="pc_consumption">How many hours a day do you use your laptop/PC?</string>
+    <string name="water_consumption_times_per_week">How many times a week do you take a shower?</string>
+    <string name="water_consumption_single_session">How long is your single shower session?</string>
+    <string name="heating_consumption_temperature">What temperature do you have in your household?</string>
+    <string name="change_electricity_consumption_btn">Change electricity consumptions</string>
+    <string name="change_water_consumption_btn">Change water consumptions</string>
+    <string name="change_heating_consumption_btn">Change heating consumptions</string>
+
+    <!--    Tutorials-->
+    <string name="energy_saving_1">Energy Saving 1</string>
+    <string name="energy_saving_2">Energy Saving 2</string>
+    <string name="energy_saving_3">Energy Saving 3</string>
+
+    <!--    Leagues-->
+    <string name="current_league">Current League: </string>
+    <string name="leagues_item_user">User Name</string>
+    <string name="leagues_item_xp">300 XP</string>
+
+    <!--    Home-->
+    <string name="consumption">Consumption</string>
+    <string name="consumption_alert_dialog_button">I got it!</string>
+    <string name="consumption_alert_dialog_title">That is how we calculate your consumptions</string>
+
+    <!--    Friends-->
+    <string name="friends_item_user">User Name</string>
+    <string name="friends_item_league_info">In the 3rd league</string>
+    <string name="friends_title">Friends</string>
 </resources>
