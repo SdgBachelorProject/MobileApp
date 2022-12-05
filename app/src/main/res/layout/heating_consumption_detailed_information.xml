@@ -17,17 +17,40 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.example.sdgbachelorproject.view.widget.ConsumptionAddView
-            android:id="@+id/electricity_add_consumption_phone"
+            android:id="@+id/heating_add_consumption_temperature"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:detailedConsumptionNumberPickerDefault="3"
-            app:detailedConsumptionNumberPickerMax="15"
-            app:detailedConsumptionNumberPickerMin="0"
+            app:detailedConsumptionNumberPickerMax="30"
+            app:detailedConsumptionNumberPickerMin="10"
             app:detailedConsumptionText="@string/heating_consumption_temperature"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <com.example.sdgbachelorproject.view.widget.ConsumptionAddView
+            android:id="@+id/heating_add_consumption_house_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:detailedConsumptionText="@string/heating_consumption_house_type"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/heating_add_consumption_temperature" />
+
+        <com.example.sdgbachelorproject.view.widget.ConsumptionAddView
+            android:id="@+id/heating_add_consumption_number_of_rooms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:detailedConsumptionNumberPickerDefault="3"
+            app:detailedConsumptionNumberPickerMax="10"
+            app:detailedConsumptionNumberPickerMin="1"
+            app:detailedConsumptionText="@string/heating_consumption_room_numbers"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/heating_add_consumption_house_type" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

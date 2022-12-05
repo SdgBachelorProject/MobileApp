@@ -1,4 +1,4 @@
-package com.example.sdgbachelorproject.view.lessons.electricity.lesson1
+package com.example.sdgbachelorproject.view.lessons.electricity.lesson3
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,7 +9,8 @@ import android.widget.Button
 import com.example.sdgbachelorproject.R
 import com.example.sdgbachelorproject.utils.switchFragment
 
-class ElectricityLesson1 : Fragment() {
+class ElectricityLesson3_1 : Fragment() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,11 +20,12 @@ class ElectricityLesson1 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_electricity_lesson1, container, false)
-        val nextButton = view.findViewById<Button>(R.id.btn_next_lesson1_1)
+        // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_electricity_lesson3, container, false)
+        val nextButton = view.findViewById<Button>(R.id.btn_next_lesson3_1)
 
         nextButton.setOnClickListener {
-            switchFragment(R.id.electricityLesson1_2)
+            switchFragment(R.id.electricityLesson3_2)
         }
         return view
     }

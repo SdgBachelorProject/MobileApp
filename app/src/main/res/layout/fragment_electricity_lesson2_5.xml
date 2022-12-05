@@ -23,25 +23,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/btn_next_lesson2_5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.556"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_next_lesson2_5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="104dp"
-        android:text="Next"
+        android:text="Finish"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.807"
-        app:layout_constraintStart_toEndOf="@+id/button3" />
+        app:layout_constraintHorizontal_bias="0.91"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn_previous_lesson2_5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="108dp"

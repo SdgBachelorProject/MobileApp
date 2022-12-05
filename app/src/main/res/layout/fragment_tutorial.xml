@@ -94,15 +94,36 @@
             app:layout_constraintTop_toBottomOf="@+id/path1_lesson3" />
 
         <ImageView
+            android:id="@+id/path1_lesson4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/ic_lesson"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.708"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/path1_lesson3" />
+
+        <ImageView
+            android:id="@+id/path1_arrow_4"
+            android:layout_width="100dp"
+            android:layout_height="2dp"
+            android:background="@color/black"
+            android:rotation="-45"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/path1_lesson4" />
+
+        <ImageView
             android:id="@+id/path1_quiz"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:src="@drawable/ic_quiz"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.708"
+            app:layout_constraintHorizontal_bias="0.293"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/path1_lesson3" />
+            app:layout_constraintTop_toBottomOf="@id/path1_lesson4" />
 
         <!--        Lesson 2-->
 
@@ -111,7 +132,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="63dp"
-            android:text="@string/energy_saving_2"
+            android:text="@string/heating_saving"
             android:textAlignment="center"
             android:textSize="32sp"
             android:textStyle="bold"

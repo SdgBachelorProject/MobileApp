@@ -10,15 +10,22 @@
     <string name="pc_consumption">How many hours a day do you use your laptop/PC?</string>
     <string name="water_consumption_times_per_week">How many times a week do you take a shower?</string>
     <string name="water_consumption_single_session">How long is your single shower session?</string>
+    <string name="water_consumption_bath">How many times per month do you take a bath?</string>
+    <string name="water_consumption_dish_cleaning">Do you have a dishwasher or do you do your dishes by hand?</string>
+    <string name="water_consumption_dish_cleaning_amount">How many times per week do you do the dishes?</string>
+    <string name="water_consumption_washing_machine">How many times per month do you use the washing machine?</string>
     <string name="heating_consumption_temperature">What temperature do you have in your household?</string>
-    <string name="change_electricity_consumption_btn">Change electricity consumptions</string>
-    <string name="change_water_consumption_btn">Change water consumptions</string>
-    <string name="change_heating_consumption_btn">Change heating consumptions</string>
+    <string name="heating_consumption_house_type">What kind of building do you live in?</string>
+    <string name="heating_consumption_room_numbers">How many rooms are in your apartment?</string>
+    <string name="change_electricity_consumption_btn">Update electricity consumptions</string>
+    <string name="change_water_consumption_btn">Update water consumptions</string>
+    <string name="change_heating_consumption_btn">Update heating consumptions</string>
 
     <!--    Tutorials-->
     <string name="energy_saving_1">Energy Saving 1</string>
     <string name="energy_saving_2">Energy Saving 2</string>
     <string name="energy_saving_3">Energy Saving 3</string>
+    <string name="heating_saving">Heating Saving</string>
 
     <!--    Leagues-->
     <string name="current_league">Current League: </string>
