@@ -66,4 +66,148 @@
         android:id="@+id/waterConsumptionDetailedInformation"
         android:name="com.example.sdgbachelorproject.view.detailedConsumptionViews.WaterConsumptionDetailedInformation"
         android:label="WaterConsumptionDetailedInformation" />
+    <fragment
+        android:id="@+id/electricityLesson1_1"
+        android:name="com.example.sdgbachelorproject.view.lessons.electricity.lesson1.ElectricityLesson1"
+        android:label="EL1">
+        <action
+            android:id="@+id/action_electricityLesson1_to_tutorialFragmentBottom2"
+            app:destination="@id/tutorialFragmentBottom" />
+    </fragment>
+    <fragment
+        android:id="@+id/electricityLesson1_2"
+        android:name="com.example.sdgbachelorproject.view.lessons.electricity.lesson1.ElectricityLesson1_2"
+        android:label="EL2" >
+        <action
+            android:id="@+id/action_electricityLesson1_13_to_electricityLesson1"
+            app:destination="@id/electricityLesson1_1" />
+    </fragment>
+    <fragment
+        android:id="@+id/electricityLesson1_3"
+        android:name="com.example.sdgbachelorproject.view.lessons.electricity.lesson1.ElectricityLesson1_3"
+        android:label="EL3">
+        <action
+            android:id="@+id/action_electricityLesson1_33_to_electricityLesson1_2"
+            app:destination="@id/electricityLesson1_2" />
+    </fragment>
+    <fragment
+        android:id="@+id/electricityLesson1_4"
+        android:name="com.example.sdgbachelorproject.view.lessons.electricity.lesson1.EnergyLesson1_4"
+        android:label="EnergyLesson1_4" >
+        <action
+            android:id="@+id/action_electricityLesson1_4_to_electricityLesson1_3"
+            app:destination="@id/electricityLesson1_3" />
+    </fragment>
+    <fragment
+        android:id="@+id/electricityLesson1_5"
+        android:name="com.example.sdgbachelorproject.view.lessons.electricity.lesson1.ElectricityLesson1_5"
+        android:label="ElectricityLesson1_5" >
+        <action
+            android:id="@+id/action_electricityLesson1_5_to_electricityLesson1_4"
+            app:destination="@id/electricityLesson1_4" />
+    </fragment>
+    <fragment
+        android:id="@+id/electricityLesson2_1"
+        android:name="com.example.sdgbachelorproject.view.lessons.electricity.lesson2.ElectricityLesson2"
+        android:label="ElectricityLesson2" >
+        <action
+            android:id="@+id/action_electricityLesson2_to_tutorialFragmentBottom"
+            app:destination="@id/tutorialFragmentBottom" />
+    </fragment>
+    <fragment
+        android:id="@+id/electricityLesson2_2"
+        android:name="com.example.sdgbachelorproject.view.lessons.electricity.lesson2.ElectricityLesson2_2"
+        android:label="ElectricityLesson2_2" >
+        <action
+            android:id="@+id/action_electricityLesson2_2_to_electricityLesson2"
+            app:destination="@id/electricityLesson2_1" />
+    </fragment>
+    <fragment
+        android:id="@+id/electricityLesson2_3"
+        android:name="com.example.sdgbachelorproject.view.lessons.electricity.lesson2.ElectricityLesson2_3"
+        android:label="ElectricityLesson2_3" >
+        <action
+            android:id="@+id/action_electricityLesson2_3_to_electricityLesson2_2"
+            app:destination="@id/electricityLesson2_2" />
+    </fragment>
+    <fragment
+        android:id="@+id/electricityLesson2_4"
+        android:name="com.example.sdgbachelorproject.view.lessons.electricity.lesson2.ElectricityLesson2_4"
+        android:label="ElectricityLesson2_4" >
+        <action
+            android:id="@+id/action_electricityLesson2_4_to_electricityLesson2_3"
+            app:destination="@id/electricityLesson2_3" />
+    </fragment>
+    <fragment
+        android:id="@+id/electricityLesson2_5"
+        android:name="com.example.sdgbachelorproject.view.lessons.electricity.lesson2.ElectricityLesson2_5"
+        android:label="ElectricityLesson2_5" >
+        <action
+            android:id="@+id/action_electricityLesson2_5_to_electricityLesson2_4"
+            app:destination="@id/electricityLesson2_4" />
+    </fragment>
+    <fragment
+        android:id="@+id/electricityLesson3_1"
+        android:name="com.example.sdgbachelorproject.view.lessons.electricity.lesson3.ElectricityLesson3_1"
+        android:label="EnelectricityLesson1" >
+        <action
+            android:id="@+id/action_electricityLesson3_1_to_tutorialFragmentBottom"
+            app:destination="@id/tutorialFragmentBottom" />
+    </fragment>
+    <fragment
+        android:id="@+id/electricityLesson3_2"
+        android:name="com.example.sdgbachelorproject.view.lessons.electricity.lesson3.ElectricityLesson3_2"
+        android:label="ElectricityLesson3_2" >
+        <action
+            android:id="@+id/action_electricityLesson3_2_to_electricityLesson3_1"
+            app:destination="@id/electricityLesson3_1" />
+    </fragment>
+    <fragment
+        android:id="@+id/electricityLesson3_3"
+        android:name="com.example.sdgbachelorproject.view.lessons.electricity.lesson3.ElectricityLesson3_3"
+        android:label="ElectricityLesson3_3" >
+        <action
+            android:id="@+id/action_electricityLesson3_3_to_electricityLesson3_2"
+            app:destination="@id/electricityLesson3_2" />
+    </fragment>
+    <fragment
+        android:id="@+id/electricityLesson3_4"
+        android:name="com.example.sdgbachelorproject.view.lessons.electricity.lesson3.ElectricityLesson3_4"
+        android:label="ElectricityLesson3_4" >
+        <action
+            android:id="@+id/action_electricityLesson3_4_to_electricityLesson3_3"
+            app:destination="@id/electricityLesson3_3" />
+    </fragment>
+    <fragment
+        android:id="@+id/electricityLesson4_1"
+        android:name="com.example.sdgbachelorproject.view.lessons.electricity.lesson4.ElectricityLesson4"
+        android:label="ElectricityLesson4" >
+        <action
+            android:id="@+id/action_electricityLesson4_to_tutorialFragmentBottom"
+            app:destination="@id/tutorialFragmentBottom" />
+    </fragment>
+    <fragment
+        android:id="@+id/electricityLesson4_2"
+        android:name="com.example.sdgbachelorproject.view.lessons.electricity.lesson4.ElectricityLesson4_2"
+        android:label="ElectricityLesson4_2" >
+        <action
+            android:id="@+id/action_electricityLesson4_2_to_electricityLesson4"
+            app:destination="@id/electricityLesson4_1" />
+    </fragment>
+    <fragment
+        android:id="@+id/heatingLesson1_1"
+        android:name="com.example.sdgbachelorproject.view.lessons.heating.lesson1.BlankFragment"
+        android:label="BlankFragment" >
+        <action
+            android:id="@+id/action_heatingLesson1_1_to_tutorialFragmentBottom"
+            app:destination="@id/tutorialFragmentBottom" />
+    </fragment>
+    <fragment
+        android:id="@+id/heatingLesson1_2"
+        android:name="com.example.sdgbachelorproject.view.lessons.heating.lesson1.HeatingLesson2"
+        android:label="HeatingLesson2" >
+        <action
+            android:id="@+id/action_heatingLesson2_to_heatingLesson1_1"
+            app:destination="@id/heatingLesson1_1" />
+    </fragment>
 </navigation>

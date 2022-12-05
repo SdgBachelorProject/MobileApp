@@ -1,38 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/electricityConsumptionDetailedInformation"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.MainActivity">
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/container_bottom_change_consumptions"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.9"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content">
 
         <com.example.sdgbachelorproject.view.widget.ConsumptionAddView
-            android:id="@+id/electricity_add_consumption_phone"
+            android:id="@+id/water_add_consumption_bath"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:detailedConsumptionNumberPickerDefault="3"
-            app:detailedConsumptionNumberPickerMax="15"
+            android:layout_height="wrap_content"
+            app:detailedConsumptionNumberPickerDefault="4"
+            app:detailedConsumptionNumberPickerMax="30"
             app:detailedConsumptionNumberPickerMin="0"
-            app:detailedConsumptionText="@string/water_consumption_single_session"
+            app:detailedConsumptionText="@string/water_consumption_bath"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.example.sdgbachelorproject.view.widget.ConsumptionAddView
-            android:id="@+id/electricity_add_consumption_tv"
+            android:id="@+id/water_add_consumption_shower_amounts"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             app:detailedConsumptionNumberPickerDefault="3"
             app:detailedConsumptionNumberPickerMax="15"
             app:detailedConsumptionNumberPickerMin="0"
@@ -40,29 +32,72 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/electricity_add_consumption_phone" />
+            app:layout_constraintTop_toBottomOf="@+id/water_add_consumption_bath" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <com.example.sdgbachelorproject.view.widget.ConsumptionAddView
+            android:id="@+id/water_add_consumption_shower_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:detailedConsumptionNumberPickerDefault="7"
+            app:detailedConsumptionNumberPickerMax="60"
+            app:detailedConsumptionNumberPickerMin="1"
+            app:detailedConsumptionText="@string/water_consumption_single_session"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/water_add_consumption_shower_amounts" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/container_bottom_change_consumptions"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.1"
-        app:layout_constraintStart_toStartOf="parent">
+        <com.example.sdgbachelorproject.view.widget.ConsumptionAddView
+            android:id="@+id/water_add_consumption_dish_cleaning_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:detailedConsumptionNumberPickerDefault="7"
+            app:detailedConsumptionNumberPickerMax="60"
+            app:detailedConsumptionNumberPickerMin="1"
+            app:detailedConsumptionText="@string/water_consumption_dish_cleaning"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/water_add_consumption_shower_time" />
+
+        <com.example.sdgbachelorproject.view.widget.ConsumptionAddView
+            android:id="@+id/water_add_consumption_dish_cleaning_amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:detailedConsumptionNumberPickerDefault="7"
+            app:detailedConsumptionNumberPickerMax="100"
+            app:detailedConsumptionNumberPickerMin="1"
+            app:detailedConsumptionText="@string/water_consumption_dish_cleaning_amount"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/water_add_consumption_dish_cleaning_question" />
+
+        <com.example.sdgbachelorproject.view.widget.ConsumptionAddView
+            android:id="@+id/water_add_consumption_washing_machine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:detailedConsumptionNumberPickerDefault="4"
+            app:detailedConsumptionNumberPickerMax="20"
+            app:detailedConsumptionNumberPickerMin="1"
+            app:detailedConsumptionText="@string/water_consumption_washing_machine"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/water_add_consumption_dish_cleaning_amount" />
 
         <Button
             android:id="@+id/btn_change_consumptions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
             android:text="@string/change_water_consumption_btn"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/water_add_consumption_washing_machine" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
