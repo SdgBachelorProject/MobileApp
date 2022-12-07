@@ -1,17 +1,17 @@
 package com.example.sdgbachelorproject.view
 
-import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.sdgbachelorproject.R
 import com.example.sdgbachelorproject.databinding.FragmentHomeBinding
 import com.example.sdgbachelorproject.utils.createAlertDialog
+import com.example.sdgbachelorproject.utils.observeAsLiveData
 import com.example.sdgbachelorproject.utils.switchFragment
+import com.example.sdgbachelorproject.viewModel.ConsumptionsViewModel
 import com.example.sdgbachelorproject.viewModel.SignInViewModel
 import com.firebase.ui.auth.AuthUI
 import com.google.firebase.quickstart.auth.kotlin.SignInActivity
@@ -23,6 +23,9 @@ class HomeFragment : Fragment() {
 
     @Inject
     lateinit var signInViewModel: SignInViewModel
+
+    @Inject
+    lateinit var consumptionsViewModel: ConsumptionsViewModel
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -51,6 +54,8 @@ class HomeFragment : Fragment() {
 //        view.txt_current_user.text = signInViewModel.currentUser.value?.displayName.toString()
 //        view.txt_current_user_token.text =
 //            signInViewModel.currentUsersFirebaseToken.value?.token.toString()
+
+        getCalculatedConsumptions()
 
         return view
     }
@@ -84,6 +89,10 @@ class HomeFragment : Fragment() {
             createAlertDialog("Heating", this.requireContext())
         }
 
+        consumptionsViewModel.calculatedHeatingConsumption.observeAsLiveData(viewLifecycleOwner) {
+            heatingConsumptionPanel.consumption_value.text = it.toString() + " kWh"
+        }
+
 //        Water
         waterConsumptionPanel.btn_add_consumption.setOnClickListener {
             switchFragment(R.id.waterConsumptionDetailedInformation)
@@ -91,6 +100,10 @@ class HomeFragment : Fragment() {
 
         waterConsumptionPanel.consumption_value_info.setOnClickListener {
             createAlertDialog("Water", this.requireContext())
+        }
+
+        consumptionsViewModel.calculatedWaterConsumption.observeAsLiveData(viewLifecycleOwner) {
+            waterConsumptionPanel.consumption_value.text = it.toString() + " liters"
         }
     }
 
@@ -112,4 +125,9 @@ class HomeFragment : Fragment() {
 //                // ...
 //            }
 //    }
+
+    private fun getCalculatedConsumptions() {
+        consumptionsViewModel.getWaterConsumption()
+        consumptionsViewModel.getHeatingConsumption()
+    }
 }

@@ -87,7 +87,7 @@
             app:layout_constraintTop_toBottomOf="@+id/water_add_consumption_dish_cleaning_amount" />
 
         <Button
-            android:id="@+id/btn_change_consumptions"
+            android:id="@+id/btn_change_consumptions_water"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"

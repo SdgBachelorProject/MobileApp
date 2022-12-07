@@ -3,6 +3,9 @@ package com.example.sdgbachelorproject.utils.di
 import android.content.Context
 import com.example.sdgbachelorproject.view.HomeFragment
 import com.example.sdgbachelorproject.view.MainActivity
+import com.example.sdgbachelorproject.view.detailedConsumptionViews.ElectricityConsumptionDetailedInformation
+import com.example.sdgbachelorproject.view.detailedConsumptionViews.HeatingConsumptionDetailedInformation
+import com.example.sdgbachelorproject.view.detailedConsumptionViews.WaterConsumptionDetailedInformation
 import com.google.firebase.quickstart.auth.kotlin.SignInActivity
 import dagger.BindsInstance
 import dagger.Component
@@ -18,6 +21,9 @@ interface AppComponent {
     fun inject(activity: SignInActivity)
     fun inject(activity: MainActivity)
     fun inject(fragment: HomeFragment)
+    fun inject(fragment: WaterConsumptionDetailedInformation)
+    fun inject(fragment: ElectricityConsumptionDetailedInformation)
+    fun inject(fragment: HeatingConsumptionDetailedInformation)
 
     // Factory to create instances of the AppComponent
     @Component.Factory
