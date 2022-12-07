@@ -1,5 +1,6 @@
 package com.example.sdgbachelorproject.utils.di
 
+import com.example.sdgbachelorproject.model.repositories.ConsumptionsRepository
 import com.example.sdgbachelorproject.model.repositories.FirebaseRepository
 import dagger.Module
 import dagger.Provides
@@ -12,5 +13,10 @@ object RepositoryModule {
     @Provides
     @Singleton
     fun provideFirebaseRepository() = FirebaseRepository()
+
+    @JvmStatic
+    @Provides
+    @Singleton
+    fun provideConsumptionsRepository() = ConsumptionsRepository()
 
 }

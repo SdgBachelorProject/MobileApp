@@ -2,6 +2,7 @@
     <string name="app_name">SdgBachelorProject</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="consumptions_empty_value">The consumption is empty</string>
     <!--    Consumptions-->
     <string name="btn_add_consumption">+</string>
     <string name="txt_current_consumption">Current consumption:</string>
