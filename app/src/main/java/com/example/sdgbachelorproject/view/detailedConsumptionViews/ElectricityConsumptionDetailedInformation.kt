@@ -61,7 +61,9 @@ class ElectricityConsumptionDetailedInformation : Fragment() {
 
             val electricityConsumption =
                 ElectricityConsumption(phoneHours!!, tvHours!!, pcHours!!, userId)
-            consumptionsViewModel.postElectricityConsumptions(electricityConsumption)
+            if (userId != null) {
+                consumptionsViewModel.postElectricityConsumptions(userId, electricityConsumption)
+            }
             Toast.makeText(this.context, "Consumptions updated!", Toast.LENGTH_LONG).show()
         }
     }

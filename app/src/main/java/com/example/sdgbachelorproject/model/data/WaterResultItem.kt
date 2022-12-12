@@ -8,5 +8,6 @@ data class WaterResultItem(
     val numberOfShowerPerWeek: Int,
     val numberOfWashingMachineUsage: Int,
     val singleShowerDuration: Int,
-    val waterConsumption: Int
+    val waterConsumption: Float,
+    val user: String
 )

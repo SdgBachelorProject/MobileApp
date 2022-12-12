@@ -210,4 +210,13 @@
             android:id="@+id/action_heatingLesson2_to_heatingLesson1_1"
             app:destination="@id/heatingLesson1_1" />
     </fragment>
+    <fragment
+        android:id="@+id/friendsAddFragment"
+        android:name="com.example.sdgbachelorproject.view.FriendsAddFragment"
+        android:label="fragment_friends_add"
+        tools:layout="@layout/fragment_friends_add" >
+        <action
+            android:id="@+id/action_friendsAddFragment_to_friendsFragmentBottom"
+            app:destination="@id/friendsFragmentBottom" />
+    </fragment>
 </navigation>

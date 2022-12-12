@@ -12,17 +12,18 @@ class ConsumptionsViewModel @Inject constructor(private val consumptionsReposito
 
     val calculatedWaterConsumption = consumptionsRepository.calculatedWaterConsumption
     val calculatedHeatingConsumption = consumptionsRepository.calculatedHeatingConsumption
+    val calculatedElectricityConsumption = consumptionsRepository.calculatedElectricityConsumption
 
-    fun postElectricityConsumptions(electricityConsumption: ElectricityConsumption) {
-        consumptionsRepository.postElectricityConsumptions(electricityConsumption)
+    fun postElectricityConsumptions(userId: String, electricityConsumption: ElectricityConsumption) {
+        consumptionsRepository.postElectricityConsumptions(userId, electricityConsumption)
     }
 
-    fun postHeatingConsumptions(heatingConsumption: HeatingConsumption) {
-        consumptionsRepository.postHeatingConsumptions(heatingConsumption)
+    fun postHeatingConsumptions(userId: String, heatingConsumption: HeatingConsumption) {
+        consumptionsRepository.postHeatingConsumptions(userId, heatingConsumption)
     }
 
-    fun postWaterConsumptions(waterConsumption: WaterConsumption) {
-        consumptionsRepository.postWaterConsumptions(waterConsumption)
+    fun postWaterConsumptions(userId: String, waterConsumption: WaterConsumption) {
+        consumptionsRepository.postWaterConsumptions(userId, waterConsumption)
     }
 
     fun getWaterConsumption() {
@@ -31,5 +32,9 @@ class ConsumptionsViewModel @Inject constructor(private val consumptionsReposito
 
     fun getHeatingConsumption() {
         consumptionsRepository.getHeatingConsumption()
+    }
+
+    fun getElectricityConsumption() {
+        consumptionsRepository.getElectricityConsumption()
     }
 }

@@ -3,9 +3,9 @@ package com.google.firebase.quickstart.auth.kotlin
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.sdgbachelorproject.R
 import com.example.sdgbachelorproject.view.MainActivity
 import com.example.sdgbachelorproject.view.MyApplication
-import com.example.sdgbachelorproject.R
 import com.example.sdgbachelorproject.viewModel.SignInViewModel
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
@@ -49,6 +49,7 @@ class SignInActivity : AppCompatActivity() {
         if (currentUser != null) {
             signInViewModel.getCurrentUser(currentUser)
             signInViewModel.getCurrentUsersFirebaseToken(currentUser)
+            signInViewModel.postUserToDb(currentUser)
         }
         updateUI(currentUser)
     }

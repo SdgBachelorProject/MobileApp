@@ -39,7 +39,6 @@ class MainActivity : AppCompatActivity() {
         //setContentView(R.layout.activity_main)
 
         // Obtain the FirebaseAnalytics instance.
-        // TODO They did it in the viewmodel
         firebaseAnalytics = Firebase.analytics
 
         // View Binding
@@ -60,13 +59,6 @@ class MainActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
-
-        // Drawer menu logout button listner
-        // its here since drawer_menu doesn't have its own fragment
-        navigation_view.getMenu().findItem(R.id.drawer_nav_logout).setOnMenuItemClickListener { menuItem ->
-//            signInViewModel.signOut()
-            true
-        }
     }
 
     override fun onResume() {

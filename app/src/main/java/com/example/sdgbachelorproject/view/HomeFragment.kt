@@ -1,6 +1,5 @@
 package com.example.sdgbachelorproject.view
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,8 +12,6 @@ import com.example.sdgbachelorproject.utils.observeAsLiveData
 import com.example.sdgbachelorproject.utils.switchFragment
 import com.example.sdgbachelorproject.viewModel.ConsumptionsViewModel
 import com.example.sdgbachelorproject.viewModel.SignInViewModel
-import com.firebase.ui.auth.AuthUI
-import com.google.firebase.quickstart.auth.kotlin.SignInActivity
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.view_current_consumption.view.*
 import javax.inject.Inject
@@ -43,18 +40,6 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view = binding.root
 
-//        view.btn_log_out.setOnClickListener {
-//            signOut()
-//        }
-//
-//        view.btn_test_repo.setOnClickListener {
-//            signInViewModel.printToConsole()
-//        }
-//
-//        view.txt_current_user.text = signInViewModel.currentUser.value?.displayName.toString()
-//        view.txt_current_user_token.text =
-//            signInViewModel.currentUsersFirebaseToken.value?.token.toString()
-
         getCalculatedConsumptions()
 
         return view
@@ -80,6 +65,15 @@ class HomeFragment : Fragment() {
             createAlertDialog("Electricity", this.requireContext())
         }
 
+        consumptionsViewModel.calculatedElectricityConsumption.observeAsLiveData(viewLifecycleOwner) {
+            it.forEach {
+                if (it.user == signInViewModel.currentUser.value?.uid) {
+                    electricityConsumptionPanel.consumption_value.text =
+                        it.electricityConsumption + " kWh"
+                }
+            }
+        }
+
 //        Heating
         heatingConsumptionPanel.btn_add_consumption.setOnClickListener {
             switchFragment(R.id.heatingConsumptionDetailedInformation)
@@ -90,7 +84,12 @@ class HomeFragment : Fragment() {
         }
 
         consumptionsViewModel.calculatedHeatingConsumption.observeAsLiveData(viewLifecycleOwner) {
-            heatingConsumptionPanel.consumption_value.text = it.toString() + " kWh"
+            it.forEach {
+                if (it.user == signInViewModel.currentUser.value?.uid) {
+                    heatingConsumptionPanel.consumption_value.text =
+                        it.heatingConsumption.toString() + " kWh"
+                }
+            }
         }
 
 //        Water
@@ -103,31 +102,18 @@ class HomeFragment : Fragment() {
         }
 
         consumptionsViewModel.calculatedWaterConsumption.observeAsLiveData(viewLifecycleOwner) {
-            waterConsumptionPanel.consumption_value.text = it.toString() + " liters"
-        }
-    }
-
-    private fun signOut() {
-        this.context?.let {
-            AuthUI.getInstance()
-                .signOut(it)
-                .addOnCompleteListener {
-                    val intent = Intent(this.activity, SignInActivity::class.java)
-                    startActivity(intent)
+            it.forEach {
+                if (it.user == signInViewModel.currentUser.value?.uid) {
+                    waterConsumptionPanel.consumption_value.text =
+                        it.waterConsumption.toString() + " liters"
                 }
+            }
         }
     }
-
-//    private fun deleteAccount() {
-//        AuthUI.getInstance()
-//            .delete(this)
-//            .addOnCompleteListener {
-//                // ...
-//            }
-//    }
 
     private fun getCalculatedConsumptions() {
         consumptionsViewModel.getWaterConsumption()
         consumptionsViewModel.getHeatingConsumption()
+        consumptionsViewModel.getElectricityConsumption()
     }
 }
