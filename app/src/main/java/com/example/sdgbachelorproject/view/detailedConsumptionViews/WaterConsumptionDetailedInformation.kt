@@ -102,7 +102,9 @@ class WaterConsumptionDetailedInformation : Fragment() {
                 userId
             )
 
-            consumptionsViewModel.postWaterConsumptions(waterConsumption)
+            if (userId != null) {
+                consumptionsViewModel.postWaterConsumptions(userId, waterConsumption)
+            }
             Toast.makeText(this.context, "Consumptions updated!", Toast.LENGTH_LONG).show()
         }
     }

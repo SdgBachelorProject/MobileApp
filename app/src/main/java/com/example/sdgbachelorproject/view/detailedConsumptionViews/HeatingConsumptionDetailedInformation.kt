@@ -88,7 +88,9 @@ class HeatingConsumptionDetailedInformation : Fragment() {
             val heatingConsumption =
                 HeatingConsumption(temperature!!, houseType!!, numOfRooms!!, userId)
 
-            consumptionsViewModel.postHeatingConsumptions(heatingConsumption)
+            if (userId != null) {
+                consumptionsViewModel.postHeatingConsumptions(userId, heatingConsumption)
+            }
             Toast.makeText(this.context, "Consumptions updated!", Toast.LENGTH_LONG).show()
         }
     }

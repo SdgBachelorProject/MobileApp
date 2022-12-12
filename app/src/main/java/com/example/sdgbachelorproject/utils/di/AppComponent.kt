@@ -1,8 +1,8 @@
 package com.example.sdgbachelorproject.utils.di
 
 import android.content.Context
-import com.example.sdgbachelorproject.view.HomeFragment
-import com.example.sdgbachelorproject.view.MainActivity
+import com.example.sdgbachelorproject.view.*
+import com.example.sdgbachelorproject.view.adapters.AddFriendsAdapter
 import com.example.sdgbachelorproject.view.detailedConsumptionViews.ElectricityConsumptionDetailedInformation
 import com.example.sdgbachelorproject.view.detailedConsumptionViews.HeatingConsumptionDetailedInformation
 import com.example.sdgbachelorproject.view.detailedConsumptionViews.WaterConsumptionDetailedInformation
@@ -21,6 +21,9 @@ interface AppComponent {
     fun inject(activity: SignInActivity)
     fun inject(activity: MainActivity)
     fun inject(fragment: HomeFragment)
+    fun inject(fragment: FriendsFragment)
+    fun inject(fragment: FriendsAddFragment)
+    fun inject(fragment: SettingsFragment)
     fun inject(fragment: WaterConsumptionDetailedInformation)
     fun inject(fragment: ElectricityConsumptionDetailedInformation)
     fun inject(fragment: HeatingConsumptionDetailedInformation)
