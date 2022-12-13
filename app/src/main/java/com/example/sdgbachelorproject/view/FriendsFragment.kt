@@ -74,22 +74,45 @@ class FriendsFragment : Fragment(), FriendsAdapter.OnFriendRemoveListener {
 //            friendsAdapter.notifyDataSetChanged()
 //        }
 
-        signInViewModel.allUsers?.observeAsLiveData(viewLifecycleOwner) {
-            val currentUser = it.find { it.userId == signInViewModel.currentUser.value?.uid }
-            val friends = currentUser?.userFriends ?: emptyList()
+//        signInViewModel.allUsers?.observeAsLiveData(viewLifecycleOwner) {
+//            val currentUser = it.find { it.userId == signInViewModel.currentUser.value?.uid }
+//            val friends = currentUser?.userFriends ?: emptyList()
+//
+//            usersFriends.clear()
+//            friends.forEach { usersFriends.add(it) }
+//            friendsAdapter.notifyDataSetChanged()
+//        }
 
+
+//        NEW ENDPOINT FOR FRIENDS
+
+        signInViewModel.currentUserFriends?.observeAsLiveData(viewLifecycleOwner) {
             usersFriends.clear()
-            friends.forEach { usersFriends.add(it) }
+            it.forEach {
+                usersFriends.add(it.username)
+            }
             friendsAdapter.notifyDataSetChanged()
         }
     }
 
     private fun getAllUsers() {
         signInViewModel.getAllUsers()
+        signInViewModel.getUserFriends()
     }
 
     override fun onFriendRemove(position: Int) {
-        signInViewModel.removeFriend(usersFriends)
+        val userFriendsNames = usersFriends
+        val userFriendsObject = signInViewModel.currentUserFriends.value
+        val userIds = mutableListOf<String>()
+
+        userFriendsNames.forEach { name ->
+            val uId = userFriendsObject?.find { user ->
+                user.username == name
+            }
+            uId?.userId?.let { userIds.add(it) }
+        }
+
+        signInViewModel.removeFriend(userIds)
         friendsAdapter.notifyItemRemoved(position)
     }
 }

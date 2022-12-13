@@ -57,4 +57,7 @@ interface ConsumptionsApi {
 
     @GET("allusers")
     fun getAllUsers(): Call<UserResult>
+
+    @GET("user/{userId}/friends")
+    fun getUserFriends(@Path("userId") userId: String): Call<UserResult>
 }

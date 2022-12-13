@@ -75,7 +75,9 @@ class FriendsAddFragment : Fragment(), AddFriendsAdapter.OnFriendAddListener {
 
         signInViewModel.allUsers?.observeAsLiveData(viewLifecycleOwner) {
             val currentUser = it.find { it.userId == signInViewModel.currentUserId }
-            val users = it.filterNot { it == currentUser }.distinct()
+            val currentUserFriends = currentUser?.userFriends
+
+            val users = it.filterNot { it == currentUser || currentUserFriends?.contains(it.userId) == true }.distinct()
 
             allUsers.clear()
             allUsers.addAll(users)

@@ -16,6 +16,7 @@ class FirebaseRepository {
     val currentUser = BehaviorSubject.create<FirebaseUser>()
     val currentUsersFirebaseToken = BehaviorSubject.create<GetTokenResult>()
     val allUsers = BehaviorSubject.create<List<User>>()
+    val currentUserFriends = BehaviorSubject.create<UserResult>()
 
     fun postUserToDb(user: FirebaseUser) {
         val retrofit = Retrofit.buildService(ConsumptionsApi::class.java)
@@ -77,5 +78,20 @@ class FirebaseRepository {
 
             }
         )
+    }
+
+    fun getUserFriends(userId: String) {
+        val retrofit = Retrofit.buildService(ConsumptionsApi::class.java)
+
+        retrofit.getUserFriends(userId).enqueue(object : Callback<UserResult> {
+            override fun onResponse(call: Call<UserResult>, response: Response<UserResult>) {
+                println("ccc Success getUserFriends: ${response.body().toString()}")
+                response.body()?.let { currentUserFriends.onNext(it) }
+            }
+
+            override fun onFailure(call: Call<UserResult>, t: Throwable) {
+                println("ccc Failure getUserFriends: ${t.toString()}")
+            }
+        })
     }
 }
