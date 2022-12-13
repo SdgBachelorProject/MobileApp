@@ -61,14 +61,6 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
-
-    override fun onPause() {
-        super.onPause()
-    }
-
     private fun googleAnalyticsEvents() {
 //        firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_ITEM) {
 //            param(FirebaseAnalytics.Param.ITEM_ID, id)

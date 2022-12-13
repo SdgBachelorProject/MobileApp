@@ -12,6 +12,7 @@ class SignInViewModel @Inject constructor(private val firebaseRepository: Fireba
 
     val currentUser = firebaseRepository.currentUser
     val currentUsersFirebaseToken = firebaseRepository.currentUsersFirebaseToken
+    val currentUserFriends = firebaseRepository.currentUserFriends
 
     val allUsers =
         firebaseRepository.allUsers
@@ -41,6 +42,12 @@ class SignInViewModel @Inject constructor(private val firebaseRepository: Fireba
 
     fun getAllUsers() {
         firebaseRepository.getAllUsers()
+    }
+
+    fun getUserFriends() {
+        if (currentUserId != null) {
+            firebaseRepository.getUserFriends(currentUserId)
+        }
     }
 
 //    fun removeFriend(usersFriends: MutableList<String>) {

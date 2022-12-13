@@ -40,7 +40,7 @@
 
     <!--    Friends-->
     <string name="friends_item_user">User Name</string>
-    <string name="friends_item_league_info">In the 3rd league</string>
+    <string name="friends_item_league_info">Current League Info</string>
     <string name="friends_title">Friends</string>
 
     <!-- Settings -->

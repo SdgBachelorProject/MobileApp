@@ -27,6 +27,8 @@
         android:text="@string/friends_item_user"
         android:textSize="19sp"
         app:layout_constraintBottom_toTopOf="@id/txt_item_friends_leagues_info"
+        app:layout_constraintEnd_toStartOf="@+id/ic_friends_delete"
+        app:layout_constraintHorizontal_bias="0.01"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

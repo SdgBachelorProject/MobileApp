@@ -2,6 +2,7 @@ package com.google.firebase.quickstart.auth.kotlin
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sdgbachelorproject.R
 import com.example.sdgbachelorproject.view.MainActivity
@@ -9,6 +10,7 @@ import com.example.sdgbachelorproject.view.MyApplication
 import com.example.sdgbachelorproject.viewModel.SignInViewModel
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract
+import com.firebase.ui.auth.IdpResponse
 import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -45,13 +47,8 @@ class SignInActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
-        if (currentUser != null) {
-            signInViewModel.getCurrentUser(currentUser)
-            signInViewModel.getCurrentUsersFirebaseToken(currentUser)
-            signInViewModel.postUserToDb(currentUser)
-        }
-        updateUI(currentUser)
+        connectToTheDb()
+        updateUI(auth.currentUser)
     }
 
     private fun createSignInIntent() {
@@ -77,39 +74,35 @@ class SignInActivity : AppCompatActivity() {
             val intent = Intent(this@SignInActivity, MainActivity::class.java)
             startActivity(intent)
         } else {
-            // Sign in failed. If response is null the user canceled the
-            // sign-in flow using the back button. Otherwise check
-            // response.getError().getErrorCode() and handle the error.
-            // ...
+            failedSignIn(response)
         }
     }
-
-    private fun delete() {
-        AuthUI.getInstance()
-            .delete(this)
-            .addOnCompleteListener {
-                // ...
-            }
-    }
-
-//    private fun themeAndLogo() {
-//        val providers = emptyList<AuthUI.IdpConfig>()
-//
-//        // [START auth_fui_theme_logo]
-//        val signInIntent = AuthUI.getInstance()
-//            .createSignInIntentBuilder()
-//            .setAvailableProviders(providers)
-//            .setLogo(R.drawable.my_great_logo) // Set logo drawable
-//            .setTheme(R.style.MySuperAppTheme) // Set theme
-//            .build()
-//        signInLauncher.launch(signInIntent)
-//        // [END auth_fui_theme_logo]
-//    }
 
     private fun updateUI(user: FirebaseUser?) {
         if (user != null) {
             val intent = Intent(this@SignInActivity, MainActivity::class.java)
             startActivity(intent)
+        }
+    }
+
+    private fun connectToTheDb() {
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            signInViewModel.getCurrentUser(currentUser)
+            signInViewModel.getCurrentUsersFirebaseToken(currentUser)
+            signInViewModel.postUserToDb(currentUser)
+        }
+    }
+
+    private fun failedSignIn(response: IdpResponse?) {
+        if (response == null) {
+            Toast.makeText(this, "Sign in canceled", Toast.LENGTH_LONG).show()
+        } else {
+            Toast.makeText(
+                this,
+                "Sign in failed: ${response.error?.errorCode}",
+                Toast.LENGTH_LONG
+            ).show()
         }
     }
 }
