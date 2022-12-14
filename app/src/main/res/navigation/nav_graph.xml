@@ -219,4 +219,12 @@
             android:id="@+id/action_friendsAddFragment_to_friendsFragmentBottom"
             app:destination="@id/friendsFragmentBottom" />
     </fragment>
+    <fragment
+        android:id="@+id/path1Quiz"
+        android:name="com.example.sdgbachelorproject.view.lessons.electricity.lesson1.Path1Quiz"
+        android:label="Path1Quiz" >
+        <action
+            android:id="@+id/action_path1Quiz_to_electricityLesson1_5"
+            app:destination="@id/electricityLesson1_5" />
+    </fragment>
 </navigation>

@@ -12,4 +12,11 @@
         <attr name="detailedConsumptionNumberPickerMin" format="integer" />
         <attr name="detailedConsumptionNumberPickerMax" format="integer" />
     </declare-styleable>
+    <declare-styleable name="QuizView">
+        <attr name="quizQuestion1" format="string"/>
+        <attr name="quizAnswer1" format="string"/>
+        <attr name="quizAnswer2" format="string"/>
+        <attr name="quizAnswer3" format="string"/>
+        <attr name="quizAnswer4" format="string"/>
+    </declare-styleable>
 </resources>

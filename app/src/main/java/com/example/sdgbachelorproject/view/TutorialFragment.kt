@@ -7,16 +7,24 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.sdgbachelorproject.R
 import com.example.sdgbachelorproject.databinding.FragmentTutorialBinding
+import com.example.sdgbachelorproject.utils.observeAsLiveData
 import com.example.sdgbachelorproject.utils.switchFragment
+import com.example.sdgbachelorproject.viewModel.QuizViewModel
 import kotlinx.android.synthetic.main.fragment_electricity_lesson1.*
 import kotlinx.android.synthetic.main.fragment_tutorial.*
+import javax.inject.Inject
 
 class TutorialFragment : Fragment() {
+
+    @Inject
+    lateinit var quizViewModel: QuizViewModel
 
     private var _binding: FragmentTutorialBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // Dagger
+        (activity?.application as MyApplication).appComponent.inject(this)
         super.onCreate(savedInstanceState)
     }
 
@@ -32,12 +40,18 @@ class TutorialFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        getQuizes()
         setupObservers()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun getQuizes() {
+        quizViewModel.getAllQuizQuestions()
+        quizViewModel.getAllQuizAnswers()
     }
 
     private fun setupObservers() {
@@ -60,5 +74,24 @@ class TutorialFragment : Fragment() {
         path2_lesson1.setOnClickListener {
             switchFragment(R.id.heatingLesson1_1)
         }
+
+        path1_quiz.setOnClickListener {
+            switchFragment(R.id.path1Quiz)
+        }
+
+        quizViewModel.allQuizQuestions.observeAsLiveData(viewLifecycleOwner) {
+            //it.forEach {
+                //println("ccc ${it.toString()}")
+            //}
+        }
+
+        quizViewModel.allQuizQuestions.observeAsLiveData(viewLifecycleOwner) {
+            val all = it
+            val filtered = all.filter {
+                it.quiz == 1
+            }
+            println("ccc filtered: ${filtered.size}")
+        }
+
     }
 }

@@ -27,6 +27,9 @@
     <string name="energy_saving_2">Energy Saving 2</string>
     <string name="energy_saving_3">Energy Saving 3</string>
     <string name="heating_saving">Heating Saving</string>
+    <string name="quiz_1_title">First quiz about energy saving</string>
+    <string name="loading_data">Loading data…</string>
+    <string name="check_answers">Check the answers</string>
 
     <!--    Leagues-->
     <string name="current_league">Current League: </string>
