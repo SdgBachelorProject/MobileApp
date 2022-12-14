@@ -11,8 +11,11 @@ import io.reactivex.subjects.BehaviorSubject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
-class UserRepository {
+class UserRepository @Inject constructor(private val retrofit: retrofit2.Retrofit) {
+
+    val retrofitInstance = retrofit.create(ConsumptionsApi::class.java)
 
     val currentUser = behavior<FirebaseUser>()
     val currentUsersFirebaseToken = behavior<GetTokenResult>()
@@ -20,13 +23,12 @@ class UserRepository {
     val currentUserFriends = behavior<UserResult>()
 
     fun postUserToDb(user: FirebaseUser) {
-        val retrofit = Retrofit.buildService(ConsumptionsApi::class.java)
 
         val convertedUser =
             user?.displayName?.let { user?.email?.let { it1 -> User(it1, user.uid, it, listOf()) } }
 
         if (convertedUser != null) {
-            retrofit.postUserToDb(convertedUser).enqueue(
+            retrofitInstance.postUserToDb(convertedUser).enqueue(
                 object : Callback<User> {
                     override fun onResponse(
                         call: Call<User>,
@@ -46,9 +48,8 @@ class UserRepository {
     }
 
     fun getAllUsers() {
-        val retrofit = Retrofit.buildService(ConsumptionsApi::class.java)
 
-        retrofit.getAllUsers().enqueue(object : Callback<UserResult> {
+        retrofitInstance.getAllUsers().enqueue(object : Callback<UserResult> {
             override fun onResponse(call: Call<UserResult>, response: Response<UserResult>) {
                 println("ccc Success getAllUsers: ${response.body().toString()}")
                 response.body()?.let { allUsers.onNext(it) }
@@ -61,9 +62,8 @@ class UserRepository {
     }
 
     fun updateUserToDb(user: User) {
-        val retrofit = Retrofit.buildService(ConsumptionsApi::class.java)
 
-        retrofit.updateUserFriendList(user.userId, user).enqueue(
+        retrofitInstance.updateUserFriendList(user.userId, user).enqueue(
             object : Callback<User> {
                 override fun onResponse(
                     call: Call<User>,
@@ -82,9 +82,8 @@ class UserRepository {
     }
 
     fun getUserFriends(userId: String) {
-        val retrofit = Retrofit.buildService(ConsumptionsApi::class.java)
 
-        retrofit.getUserFriends(userId).enqueue(object : Callback<UserResult> {
+        retrofitInstance.getUserFriends(userId).enqueue(object : Callback<UserResult> {
             override fun onResponse(call: Call<UserResult>, response: Response<UserResult>) {
                 println("ccc Success getUserFriends: ${response.body().toString()}")
                 response.body()?.let { currentUserFriends.onNext(it) }
