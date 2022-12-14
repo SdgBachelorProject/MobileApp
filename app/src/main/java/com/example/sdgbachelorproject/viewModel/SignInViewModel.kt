@@ -1,13 +1,13 @@
 package com.example.sdgbachelorproject.viewModel
 
 import androidx.lifecycle.ViewModel
-import com.example.sdgbachelorproject.model.data.User
-import com.example.sdgbachelorproject.model.repositories.FirebaseRepository
+import com.example.sdgbachelorproject.data.model.User
+import com.example.sdgbachelorproject.data.repositories.UserRepository
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseUser
 import javax.inject.Inject
 
-class SignInViewModel @Inject constructor(private val firebaseRepository: FirebaseRepository) :
+class SignInViewModel @Inject constructor(private val firebaseRepository: UserRepository) :
     ViewModel() {
 
     val currentUser = firebaseRepository.currentUser

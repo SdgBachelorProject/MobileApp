@@ -10,8 +10,8 @@ import android.widget.Toast
 import androidx.core.graphics.drawable.toDrawable
 import androidx.fragment.app.Fragment
 import com.example.sdgbachelorproject.databinding.FragmentPath1QuizBinding
-import com.example.sdgbachelorproject.model.data.AllQuizAnswersItem
-import com.example.sdgbachelorproject.model.data.AllQuizQuestionsItem
+import com.example.sdgbachelorproject.data.model.AllQuizAnswersItem
+import com.example.sdgbachelorproject.data.model.AllQuizQuestionsItem
 import com.example.sdgbachelorproject.utils.observeAsLiveData
 import com.example.sdgbachelorproject.view.MyApplication
 import com.example.sdgbachelorproject.viewModel.QuizViewModel

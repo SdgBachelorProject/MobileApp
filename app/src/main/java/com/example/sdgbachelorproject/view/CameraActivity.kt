@@ -12,7 +12,8 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.sdgbachelorproject.databinding.ActivityCameraBinding
-import com.example.sdgbachelorproject.model.QrCodeAnalyzer
+import com.example.sdgbachelorproject.data.QrCodeAnalyzer
+import com.example.sdgbachelorproject.view.widget.BarcodeBoxView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors

@@ -1,7 +1,7 @@
 package com.example.sdgbachelorproject.viewModel
 
 import androidx.lifecycle.ViewModel
-import com.example.sdgbachelorproject.model.repositories.QuizesRepository
+import com.example.sdgbachelorproject.data.repositories.QuizesRepository
 import javax.inject.Inject
 
 class QuizViewModel @Inject constructor(private val quizesRepository: QuizesRepository) :

@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sdgbachelorproject.databinding.FragmentLeaguesBinding
-import com.example.sdgbachelorproject.model.repositories.TestData
+import com.example.sdgbachelorproject.data.model.LeagueItem
 import com.example.sdgbachelorproject.view.adapters.LeaguesAdapter
 import kotlinx.android.synthetic.main.fragment_leagues.view.*
 
@@ -16,7 +16,7 @@ class LeaguesFragment : Fragment() {
 
     private var _binding: FragmentLeaguesBinding? = null
     private val binding get() = _binding!!
-    private val itemsList = ArrayList<TestData>()
+    private val itemsList = ArrayList<LeagueItem>()
     private lateinit var leaguesAdapter: LeaguesAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,15 +41,15 @@ class LeaguesFragment : Fragment() {
     }
 
     private fun prepareItems() {
-        itemsList.add(TestData("Dumitrus Bogus", 32))
-        itemsList.add(TestData("Pawel", 645))
-        itemsList.add(TestData("Wojtek", 12))
-        itemsList.add(TestData("Tom", 923))
-        itemsList.add(TestData("Bnal", 54343))
-        itemsList.add(TestData("Iaox", 923))
-        itemsList.add(TestData("Ljks", 823))
-        itemsList.add(TestData("Madb", 1123))
-        itemsList.add(TestData("Bob", 38409))
+        itemsList.add(LeagueItem("Dumitrus Bogus", 32))
+        itemsList.add(LeagueItem("Pawel", 645))
+        itemsList.add(LeagueItem("Wojtek", 12))
+        itemsList.add(LeagueItem("Tom", 923))
+        itemsList.add(LeagueItem("Bnal", 54343))
+        itemsList.add(LeagueItem("Iaox", 923))
+        itemsList.add(LeagueItem("Ljks", 823))
+        itemsList.add(LeagueItem("Madb", 1123))
+        itemsList.add(LeagueItem("Bob", 38409))
         leaguesAdapter.notifyDataSetChanged()
     }
 }
