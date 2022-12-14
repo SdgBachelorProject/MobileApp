@@ -12,8 +12,10 @@ class MyApplication: Application() {
     }
 
     open fun initializeComponent(): AppComponent {
+        // Create an instance of the RetrofitModule class
+        val retrofitModule = com.example.sdgbachelorproject.utils.di.RetrofitModule
         // Creates an instance of AppComponent using its Factory constructor
         // We pass the applicationContext that will be used as Context in the graph
-        return DaggerAppComponent.factory().create(applicationContext)
+        return DaggerAppComponent.factory().create(applicationContext, retrofitModule)
     }
 }
