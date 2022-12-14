@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sdgbachelorproject.R
-import com.example.sdgbachelorproject.model.data.User
+import com.example.sdgbachelorproject.data.model.User
 
 internal class AddFriendsAdapter(
     private var itemsList: MutableList<User>,

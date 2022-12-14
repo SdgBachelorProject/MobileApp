@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.sdgbachelorproject.databinding.HeatingConsumptionDetailedInformationBinding
-import com.example.sdgbachelorproject.model.data.HeatingConsumption
+import com.example.sdgbachelorproject.data.model.HeatingConsumption
 import com.example.sdgbachelorproject.view.MyApplication
 import com.example.sdgbachelorproject.viewModel.ConsumptionsViewModel
 import com.example.sdgbachelorproject.viewModel.SignInViewModel

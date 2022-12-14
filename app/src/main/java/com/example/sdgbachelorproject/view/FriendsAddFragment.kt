@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sdgbachelorproject.databinding.FragmentFriendsAddBinding
-import com.example.sdgbachelorproject.model.data.User
+import com.example.sdgbachelorproject.data.model.User
 import com.example.sdgbachelorproject.utils.observeAsLiveData
 import com.example.sdgbachelorproject.view.adapters.AddFriendsAdapter
 import com.example.sdgbachelorproject.viewModel.SignInViewModel

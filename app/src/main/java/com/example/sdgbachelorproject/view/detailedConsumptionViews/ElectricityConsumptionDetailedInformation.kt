@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.sdgbachelorproject.databinding.ElectricityConsumptionDetailedInformationBinding
-import com.example.sdgbachelorproject.model.data.ElectricityConsumption
+import com.example.sdgbachelorproject.data.model.ElectricityConsumption
 import com.example.sdgbachelorproject.view.MyApplication
 import com.example.sdgbachelorproject.viewModel.ConsumptionsViewModel
 import com.example.sdgbachelorproject.viewModel.SignInViewModel

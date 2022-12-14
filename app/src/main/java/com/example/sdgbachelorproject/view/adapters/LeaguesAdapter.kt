@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sdgbachelorproject.R
-import com.example.sdgbachelorproject.model.repositories.TestData
+import com.example.sdgbachelorproject.data.model.LeagueItem
 import io.reactivex.annotations.NonNull
 
-internal class LeaguesAdapter(private var itemsList: List<TestData>) :
+internal class LeaguesAdapter(private var itemsList: List<LeagueItem>) :
     RecyclerView.Adapter<LeaguesAdapter.MyViewHolder>() {
     internal inner class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var userName: TextView = view.findViewById(R.id.txt_item_leagues_username)
