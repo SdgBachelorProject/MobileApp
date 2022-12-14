@@ -14,12 +14,12 @@ object RepositoryModule {
     @JvmStatic
     @Provides
     @Singleton
-    fun provideFirebaseRepository() = UserRepository()
+    fun provideFirebaseRepository(retrofit: Retrofit) = UserRepository(retrofit)
 
     @JvmStatic
     @Provides
     @Singleton
-    fun provideConsumptionsRepository() = ConsumptionsRepository()
+    fun provideConsumptionsRepository(retrofit: Retrofit) = ConsumptionsRepository(retrofit)
 
     @JvmStatic
     @Provides

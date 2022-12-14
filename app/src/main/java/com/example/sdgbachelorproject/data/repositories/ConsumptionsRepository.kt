@@ -1,15 +1,16 @@
 package com.example.sdgbachelorproject.data.repositories
 
 import com.example.sdgbachelorproject.data.api.ConsumptionsApi
-import com.example.sdgbachelorproject.data.api.Retrofit
 import com.example.sdgbachelorproject.data.model.*
 import com.example.sdgbachelorproject.utils.behavior
-import io.reactivex.subjects.BehaviorSubject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
-class ConsumptionsRepository {
+class ConsumptionsRepository @Inject constructor(private val retrofit: retrofit2.Retrofit) {
+
+    val retrofitInstance = retrofit.create(ConsumptionsApi::class.java)
 
     val calculatedWaterConsumption = behavior<List<WaterResultItem>>()
     val calculatedHeatingConsumption = behavior<List<HeatingResultItem>>()
@@ -19,9 +20,8 @@ class ConsumptionsRepository {
         userId: String,
         electricityConsumption: ElectricityConsumption
     ) {
-        val retrofit = Retrofit.buildService(ConsumptionsApi::class.java)
 
-        retrofit.addElectricityConsumptions(electricityConsumption).enqueue(
+        retrofitInstance.addElectricityConsumptions(electricityConsumption).enqueue(
             object : Callback<ElectricityConsumption> {
                 override fun onResponse(
                     call: Call<ElectricityConsumption>,
@@ -47,9 +47,8 @@ class ConsumptionsRepository {
         userId: String,
         electricityConsumption: ElectricityConsumption
     ) {
-        val retrofit = Retrofit.buildService(ConsumptionsApi::class.java)
 
-        retrofit.updateElectricityConsumption(userId, electricityConsumption).enqueue(
+        retrofitInstance.updateElectricityConsumption(userId, electricityConsumption).enqueue(
             object : Callback<ElectricityConsumption> {
                 override fun onResponse(
                     call: Call<ElectricityConsumption>,
@@ -68,9 +67,8 @@ class ConsumptionsRepository {
     }
 
     fun postHeatingConsumptions(userId: String, heatingConsumption: HeatingConsumption) {
-        val retrofit = Retrofit.buildService(ConsumptionsApi::class.java)
 
-        retrofit.addHeatingConsumptions(heatingConsumption).enqueue(
+        retrofitInstance.addHeatingConsumptions(heatingConsumption).enqueue(
             object : Callback<HeatingConsumption> {
                 override fun onResponse(
                     call: Call<HeatingConsumption>,
@@ -93,9 +91,8 @@ class ConsumptionsRepository {
     }
 
     fun updateHeatingConsumptions(userId: String, heatingConsumption: HeatingConsumption) {
-        val retrofit = Retrofit.buildService(ConsumptionsApi::class.java)
 
-        retrofit.updateHeatingConsumption(userId, heatingConsumption).enqueue(
+        retrofitInstance.updateHeatingConsumption(userId, heatingConsumption).enqueue(
             object : Callback<HeatingConsumption> {
                 override fun onResponse(
                     call: Call<HeatingConsumption>,
@@ -114,9 +111,8 @@ class ConsumptionsRepository {
     }
 
     fun postWaterConsumptions(userId: String, waterConsumption: WaterConsumption) {
-        val retrofit = Retrofit.buildService(ConsumptionsApi::class.java)
 
-        retrofit.addWaterConsumptions(waterConsumption).enqueue(
+        retrofitInstance.addWaterConsumptions(waterConsumption).enqueue(
             object : Callback<WaterConsumption> {
                 override fun onResponse(
                     call: Call<WaterConsumption>,
@@ -139,9 +135,8 @@ class ConsumptionsRepository {
     }
 
     fun updateWaterConsumptions(userId: String, waterConsumption: WaterConsumption) {
-        val retrofit = Retrofit.buildService(ConsumptionsApi::class.java)
 
-        retrofit.updateWaterConsumption(userId, waterConsumption).enqueue(
+        retrofitInstance.updateWaterConsumption(userId, waterConsumption).enqueue(
             object : Callback<WaterConsumption> {
                 override fun onResponse(
                     call: Call<WaterConsumption>,
@@ -160,9 +155,8 @@ class ConsumptionsRepository {
     }
 
     fun getWaterConsumption() {
-        val retrofit = Retrofit.buildService(ConsumptionsApi::class.java)
 
-        retrofit.getWaterConsumption().enqueue(object : Callback<WaterResult> {
+        retrofitInstance.getWaterConsumption().enqueue(object : Callback<WaterResult> {
             override fun onResponse(call: Call<WaterResult>, response: Response<WaterResult>) {
                 response.body()?.let { calculatedWaterConsumption.onNext(it.toList()) }
                 println("ccc SUCC GET: ${response.body().toString()}")
@@ -176,9 +170,8 @@ class ConsumptionsRepository {
     }
 
     fun getHeatingConsumption() {
-        val retrofit = Retrofit.buildService(ConsumptionsApi::class.java)
 
-        retrofit.getHeatingConsumption().enqueue(object : Callback<HeatingResult> {
+        retrofitInstance.getHeatingConsumption().enqueue(object : Callback<HeatingResult> {
             override fun onResponse(call: Call<HeatingResult>, response: Response<HeatingResult>) {
                 println("ccc SUCC GET: ${response.body().toString()}")
                 response.body()?.let { calculatedHeatingConsumption.onNext(it.toList()) }
@@ -191,9 +184,8 @@ class ConsumptionsRepository {
     }
 
     fun getElectricityConsumption() {
-        val retrofit = Retrofit.buildService(ConsumptionsApi::class.java)
 
-        retrofit.getElectricityConsumption().enqueue(object : Callback<ElectricityResult> {
+        retrofitInstance.getElectricityConsumption().enqueue(object : Callback<ElectricityResult> {
             override fun onResponse(
                 call: Call<ElectricityResult>,
                 response: Response<ElectricityResult>
