@@ -9,57 +9,46 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="348dp"
-        android:layout_height="275dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="316dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="80dp"
         android:gravity="center|top|center_vertical"
         android:text="If you use most of your electricity during off-peak hours (evenings, overnight and weekends), and have higher electricity demands, time-of-use may be your preferred pricing plan.Use electricity when price is lower If you’re a time-of-use customer, the price of electricity is lower at night, on the weekends and on statutory holidays.  It doesn’t matter what time of year it is. For example, it’s cheaper for time-of-use customers to run their washer and dryer during the day on a weekend versus a weekday."
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:text="&quot;Turning the lights off makes a world of diffrence&quot; "
+        android:layout_marginTop="32dp"
+        android:text="&quot;Reducing your power usage is a trend worth following.&quot; "
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
-        android:id="@+id/btn_previous_lesson2_3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="104dp"
-        android:text="Back"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.154"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
         android:id="@+id/btn_next_lesson2_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="104dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="100dp"
         android:text="Next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/textView"
+    <Button
+        android:id="@+id/btn_previous_lesson2_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
-        android:text="Choose how your electricity is billed "
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="100dp"
+        android:text="Back"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
 
