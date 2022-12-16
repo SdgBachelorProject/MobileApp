@@ -60,19 +60,6 @@ class FriendsAddFragment : Fragment(), AddFriendsAdapter.OnFriendAddListener {
 
     private fun setupObservers() {
 
-//        signInViewModel.allUsers?.observeAsLiveData(viewLifecycleOwner) {
-//            signInViewModel.allUsers?.observeAsLiveData(viewLifecycleOwner) {
-//                allUsers.clear()
-//                it.filterNot {
-//                    it.userId == signInViewModel.currentUserId
-//                }.forEach {
-//                    allUsers.add(it)
-//                }
-//            }
-//
-//            addFriendsAdapter.notifyDataSetChanged()
-//        }
-
         signInViewModel.allUsers?.observeAsLiveData(viewLifecycleOwner) {
             val currentUser = it.find { it.userId == signInViewModel.currentUserId }
             val currentUserFriends = currentUser?.userFriends

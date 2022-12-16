@@ -61,18 +61,6 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
     }
 
-    private fun googleAnalyticsEvents() {
-//        firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_ITEM) {
-//            param(FirebaseAnalytics.Param.ITEM_ID, id)
-//            param(FirebaseAnalytics.Param.ITEM_NAME, name)
-//            param(FirebaseAnalytics.Param.CONTENT_TYPE, "image")
-//        }
-        firebaseAnalytics.logEvent(FirebaseAnalytics.Event.LOGIN) {
-            param("Username", signInViewModel.currentUser.value?.displayName.toString())
-            param("Email", signInViewModel.currentUser.value?.email.toString())
-        }
-    }
-
     override fun onSupportNavigateUp(): Boolean {
         navController = Navigation.findNavController(this, R.id.activity_main_nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
