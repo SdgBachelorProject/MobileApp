@@ -80,17 +80,10 @@ class TutorialFragment : Fragment() {
         }
 
         quizViewModel.allQuizQuestions.observeAsLiveData(viewLifecycleOwner) {
-            //it.forEach {
-                //println("ccc ${it.toString()}")
-            //}
-        }
-
-        quizViewModel.allQuizQuestions.observeAsLiveData(viewLifecycleOwner) {
             val all = it
             val filtered = all.filter {
                 it.quiz == 1
             }
-            println("ccc filtered: ${filtered.size}")
         }
 
     }

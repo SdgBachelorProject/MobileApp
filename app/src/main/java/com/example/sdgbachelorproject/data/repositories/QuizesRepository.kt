@@ -15,8 +15,6 @@ import javax.inject.Inject
 class QuizesRepository @Inject constructor(private val retrofit: Retrofit) {
     val retrofitInstance = retrofit.create(ConsumptionsApi::class.java)
     val allQuizQuestions = behavior<List<AllQuizQuestionsItem>>()
-
-    //    val allQuizQuestions = behavior<AllQuizQuestions>()
     val allQuizAnswers = behavior<List<AllQuizAnswersItem>>()
 
     fun getAllQuizQuestions() {

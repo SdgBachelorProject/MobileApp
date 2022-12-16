@@ -59,33 +59,6 @@ class FriendsFragment : Fragment(), FriendsAdapter.OnFriendRemoveListener {
             switchFragment(R.id.friendsAddFragment)
         }
 
-//        signInViewModel.allUsers?.observeAsLiveData(viewLifecycleOwner) {
-//            signInViewModel.allUsers?.observeAsLiveData(viewLifecycleOwner) {
-//                usersFriends.clear()
-//                it.filter {
-//                    it.userId == signInViewModel.currentUser.value?.uid
-//                }.forEach {
-//                    it.userFriends.forEach {
-//                        usersFriends.add(it)
-//                    }
-//                }
-//            }
-//
-//            friendsAdapter.notifyDataSetChanged()
-//        }
-
-//        signInViewModel.allUsers?.observeAsLiveData(viewLifecycleOwner) {
-//            val currentUser = it.find { it.userId == signInViewModel.currentUser.value?.uid }
-//            val friends = currentUser?.userFriends ?: emptyList()
-//
-//            usersFriends.clear()
-//            friends.forEach { usersFriends.add(it) }
-//            friendsAdapter.notifyDataSetChanged()
-//        }
-
-
-//        NEW ENDPOINT FOR FRIENDS
-
         signInViewModel.currentUserFriends?.observeAsLiveData(viewLifecycleOwner) {
             usersFriends.clear()
             it.forEach {
